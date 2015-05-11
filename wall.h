@@ -11,15 +11,17 @@ public:
     };
 
 private:
-    float position;
+    Vector position;
+    float length;
     Direction direction;
 
 public:
-    Wall(float position, Direction direction) : position{position}, direction{direction} {}
+    Wall(Vector position, float length, Direction direction) : position{position}, length{length}, direction{direction} {}
 
     float tryCollide(Vector start, Vector speed, float time) override final;
     void doCollide(Vector &start, Vector &speed, float &time, float dist) override final;
 
+    void setPosition(Vector newPos) { position = newPos; }
 };
 
 #endif // WALL_H_INCLUDED

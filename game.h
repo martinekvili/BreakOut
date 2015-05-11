@@ -8,10 +8,11 @@
 #include "icollidable.h"
 #include "wall.h"
 #include "view.h"
+#include "pad.h"
 
 class Game {
     std::shared_ptr<ISteppable> ball;
-//    Pad pad;
+    Pad *pad;
     std::vector<std::shared_ptr<ICollidable>> objects;
 
     int points;
@@ -27,6 +28,7 @@ public:
     std::vector<std::shared_ptr<ICollidable>> getCollidables();
 
     void step(float elapsed);
+    void setPadPosition(float x, float y);
 };
 
 #endif // GAME_H_INCLUDED

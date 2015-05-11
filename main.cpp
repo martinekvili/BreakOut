@@ -21,10 +21,11 @@ int main(int argc, char **argv) {
 
     auto paintCallback = [&view] { view.draw(); };
     auto idleCallback = [&game] (float elapsed) { game.step(elapsed); };
+    auto mouseMotionCallback = [&game] (float x, float y) { game.setPadPosition(x, y); };
 
-    Graphics::setCallbacks (paintCallback,
-                           [] (float, float) {},
-                           idleCallback);
+    Graphics::setCallbacks( paintCallback,
+                            mouseMotionCallback,
+                            idleCallback );
 
     Graphics::initialize(&argc, argv);
 }

@@ -12,10 +12,13 @@ Game::Game(View& view) {
     ball = std::shared_ptr<ISteppable>{b};
     view.addDrawable(new BallView(*b));
 
-    addObject(new Wall{0, Wall::Direction::vertical});
-    addObject(new Wall{160, Wall::Direction::vertical});
-    addObject(new Wall{90, Wall::Direction::horizontal});
-    addObject(new Wall{0, Wall::Direction::horizontal});
+    pad = new Pad();
+
+    addObject(pad);
+    addObject(new Wall{Vector{0, 0}, 90, Wall::Direction::vertical});
+    addObject(new Wall{Vector{160, 0}, 90, Wall::Direction::vertical});
+    //addObject(new Wall{Vector{0, 0}, 160, Wall::Direction::horizontal});
+    addObject(new Wall{Vector{0, 90}, 160, Wall::Direction::horizontal});
 }
 
 std::vector<std::shared_ptr<ICollidable>> Game::getCollidables() {
@@ -24,4 +27,8 @@ std::vector<std::shared_ptr<ICollidable>> Game::getCollidables() {
 
 void Game::step(float elapsed) {
     ball->step(elapsed);
+}
+
+void Game::setPadPosition(float x, float y) {
+    pad->setPosition(x, y);
 }
