@@ -32,7 +32,7 @@ void Graphics::onMouseMotion(int x, int y) {
     glutPostRedisplay();
 }
 
-void Graphics::onIdle() {
+void Graphics::onTick(int) {
     int now = glutGet(GLUT_ELAPSED_TIME);
 
     // Meghívjuk az eltelt másodpercek számával
@@ -41,6 +41,8 @@ void Graphics::onIdle() {
     startTime = now;
 
     glutPostRedisplay();
+
+    glutTimerFunc(16, onTick, 0);
 }
 
 void Graphics::drawRect(float x, float y, float width, float height, Color color) {
@@ -101,12 +103,12 @@ void Graphics::initialize(int* argc, char** argv) {
 
     glutDisplayFunc(onDisplay);
     glutMouseFunc(onMouse);
-    glutIdleFunc(onIdle);
     glutKeyboardFunc(onKeyboard);
     glutKeyboardUpFunc(onKeyboardUp);
     glutPassiveMotionFunc(onMouseMotion);
 
     startTime = glutGet(GLUT_ELAPSED_TIME);
+    glutTimerFunc(16, onTick, 0);
 
     glutMainLoop();
 }

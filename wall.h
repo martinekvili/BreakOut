@@ -22,6 +22,8 @@ public:
     void doCollide(Vector &start, Vector &speed, float &time, float dist) override final;
 
     void setPosition(Vector newPos) { position = newPos; }
+    Vector getPosition() { return position; }
+    float getLength() { return length; }
 };
 
 #endif // WALL_H_INCLUDED

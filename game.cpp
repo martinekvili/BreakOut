@@ -7,10 +7,10 @@ void Game::addObject(ICollidable *elem) {
     objects.push_back(std::shared_ptr<ICollidable>{elem});
 }
 
-Game::Game(View& view) {
-    ball = std::shared_ptr<ISteppable>{new Ball(Vector{80, 45}, Vector{100, 100}, *this, view)};
+Game::Game(View& view) : isRunning{true} {
+    ball = std::shared_ptr<ISteppable>{new Ball(Vector{80, 45}, Vector{50, 50}, *this, view)};
 
-    pad = new Pad();
+    pad = new Pad(view);
 
     addObject(pad);
     addObject(new Wall{Vector{0, 0}, 90, Wall::Direction::vertical});
@@ -24,9 +24,15 @@ std::vector<std::shared_ptr<ICollidable>> Game::getCollidables() {
 }
 
 void Game::step(float elapsed) {
-    ball->step(elapsed);
+    if (isRunning) {
+        ball->step(elapsed);
+    }
 }
 
 void Game::setPadPosition(float x, float y) {
     pad->setPosition(x, y);
+}
+
+void Game::stop() {
+    isRunning = false;
 }

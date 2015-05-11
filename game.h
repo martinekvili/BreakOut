@@ -15,6 +15,7 @@ class Game {
     Pad *pad;
     std::vector<std::shared_ptr<ICollidable>> objects;
 
+    bool isRunning;
     int points;
 
     void addObject(ICollidable *elem);
@@ -29,6 +30,8 @@ public:
 
     void step(float elapsed);
     void setPadPosition(float x, float y);
+
+    void stop();
 };
 
 #endif // GAME_H_INCLUDED

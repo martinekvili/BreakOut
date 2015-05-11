@@ -5,22 +5,24 @@
 	"game.h"
 	"view.h"
 
-1431354226 e:\github\breakout\graphics.h
+1431364632 e:\github\breakout\graphics.h
 	<GL/gl.h>
 	<GL/glu.h>
 	<GL/glut.h>
 	<functional>
 	<cmath>
+	<thread>
+	<chrono>
 
 1431354374 source:e:\github\breakout\graphics.cpp
 	"graphics.h"
 
-1431361026 source:e:\github\breakout\game.cpp
+1431363393 source:e:\github\breakout\game.cpp
 	"game.h"
 	"ball.h"
 	"ballview.h"
 
-1431361240 source:e:\github\breakout\ball.cpp
+1431363290 source:e:\github\breakout\ball.cpp
 	"ball.h"
 	"ballview.h"
 
@@ -30,7 +32,7 @@
 
 1431351627 e:\github\breakout\isteppable.h
 
-1431360516 e:\github\breakout\game.h
+1431363212 e:\github\breakout\game.h
 	<vector>
 	<memory>
 	"isteppable.h"
@@ -51,7 +53,7 @@
 1431357242 source:e:\github\breakout\wall.cpp
 	"wall.h"
 
-1431360364 e:\github\breakout\wall.h
+1431362821 e:\github\breakout\wall.h
 	"icollidable.h"
 
 1431353410 source:e:\github\breakout\view.cpp
@@ -65,16 +67,26 @@
 1431351681 e:\github\breakout\idrawable.h
 	"graphics.h"
 
-1431354795 source:e:\github\breakout\ballview.cpp
+1431363360 source:e:\github\breakout\ballview.cpp
 	"ballview.h"
 
 1431353149 e:\github\breakout\ballview.h
 	"graphics.h"
 	"ball.h"
 
-1431360827 e:\github\breakout\pad.h
+1431363029 e:\github\breakout\pad.h
 	"wall.h"
+	"view.h"
 
-1431360469 source:e:\github\breakout\pad.cpp
+1431363048 source:e:\github\breakout\pad.cpp
 	"pad.h"
+	"padview.h"
+
+1431363067 source:e:\github\breakout\padview.cpp
+	"padview.h"
+
+1431362871 e:\github\breakout\padview.h
+	"idrawable.h"
+	"pad.h"
+	"graphics.h"
 

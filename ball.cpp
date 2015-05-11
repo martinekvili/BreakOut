@@ -8,13 +8,22 @@ Ball::Ball(Vector position, Vector speed, Game& game, View& view) : position{pos
 
 void Ball::step(float elapsed) {
     /*
-     * Az ¸tkˆzÈsdetekt·l·s.
+     * El≈ësz√∂r is csekkoljuk, hogy leesett-e a labda, mert ha igen,
+     * akkor az eg√©sz elk√∂vetkez≈ë √ºtk√∂z√©sdetekt√°l√°st f√∂l√∂slegesen v√©gezz√ºk,
+     * mert m√°r v√©ge a j√°t√©knak.
+     */
+    if (position.y < 0) {
+        game.stop();
+    }
+
+    /*
+     * Az √ºtk√∂z√©sdetekt√°l√°s.
      *
-     * VÈgigmegy¸nk az ¸tkˆzhetı elemeken, Ès megkeress¸k azt,
-     * akivel elıszˆr ¸tkˆzik, ha ¸tkˆzik egy·ltal·n.
-     * Ha tal·ltunk ilyet, akkor az ¸tkˆzÈs helyÈre tessz¸k a labd·t,
-     * a megv·ltozott sebessÈggel, majd elˆlrıl kezdj¸k a folyamatot:
-     * hisz lehet, hogy egy idıintervallum alatt tˆbb elemmel is ¸tkˆzˆtt.
+     * V√©gigmegy√ºnk az √ºtk√∂zhet√µ elemeken, √©s megkeress√ºk azt,
+     * akivel el√µsz√∂r √ºtk√∂zik, ha √ºtk√∂zik egy√°ltal√°n.
+     * Ha tal√°ltunk ilyet, akkor az √ºtk√∂z√©s hely√©re tessz√ºk a labd√°t,
+     * a megv√°ltozott sebess√©ggel, majd el√∂lr√µl kezdj√ºk a folyamatot:
+     * hisz lehet, hogy egy id√µintervallum alatt t√∂bb elemmel is √ºtk√∂z√∂tt.
      */
     bool collisionHappened;
     do {
@@ -43,9 +52,9 @@ void Ball::step(float elapsed) {
     } while (collisionHappened);
 
     /*
-     * Itt m·r elvÈgezt¸nk minden elvÈgzendı ¸tkˆzÈst,
-     * m·r csak anniy van h·tra, hogy a megmaradt idıt elhaszn·ljuk arra,
-     * hogy zavartalanul haladjunk elıre.
+     * Itt m√°r elv√©gezt√ºnk minden elv√©gzend√µ √ºtk√∂z√©st,
+     * m√°r csak anniy van h√°tra, hogy a megmaradt id√µt elhaszn√°ljuk arra,
+     * hogy zavartalanul haladjunk el√µre.
      */
      position += speed * elapsed;
 }

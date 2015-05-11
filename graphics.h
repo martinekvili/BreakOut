@@ -7,6 +7,9 @@
 #include <functional>
 #include <cmath>
 
+#include <thread>         // std::this_thread::sleep_for
+#include <chrono>
+
 class Graphics {
     static int screenWidth, screenHeight;
     static int worldWidth, worldHeight;
@@ -23,7 +26,7 @@ class Graphics {
     static void onMouseMotion(int x, int y);
 
     static void onDisplay();
-    static void onIdle();
+    static void onTick(int);
 
 public:
     struct Color {
