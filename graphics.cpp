@@ -42,7 +42,7 @@ void Graphics::onTick(int) {
 
     glutPostRedisplay();
 
-    glutTimerFunc(16, onTick, 0);
+    glutTimerFunc(10, onTick, 0);
 }
 
 void Graphics::drawRect(float x, float y, float width, float height, Color color) {
@@ -108,7 +108,8 @@ void Graphics::initialize(int* argc, char** argv) {
     glutPassiveMotionFunc(onMouseMotion);
 
     startTime = glutGet(GLUT_ELAPSED_TIME);
-    glutTimerFunc(16, onTick, 0);
+    // Körülbelül 60 fps
+    glutTimerFunc(10, onTick, 0);
 
     glutMainLoop();
 }

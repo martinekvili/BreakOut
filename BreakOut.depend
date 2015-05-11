@@ -1,6 +1,7 @@
 # depslib dependency file v1.0
-1431360627 source:e:\github\breakout\main.cpp
+1431365287 source:e:\github\breakout\main.cpp
 	<iostream>
+	<windows.h>
 	"graphics.h"
 	"game.h"
 	"view.h"
@@ -14,7 +15,7 @@
 	<thread>
 	<chrono>
 
-1431354374 source:e:\github\breakout\graphics.cpp
+1431365040 source:e:\github\breakout\graphics.cpp
 	"graphics.h"
 
 1431363393 source:e:\github\breakout\game.cpp

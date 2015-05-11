@@ -39,9 +39,28 @@
 			<Add library="glu32" />
 			<Add library="glut32" />
 		</Linker>
+		<Unit filename="ball.cpp" />
+		<Unit filename="ball.h" />
+		<Unit filename="ballview.cpp" />
+		<Unit filename="ballview.h" />
+		<Unit filename="game.cpp" />
+		<Unit filename="game.h" />
 		<Unit filename="graphics.cpp" />
 		<Unit filename="graphics.h" />
+		<Unit filename="icollidable.h" />
+		<Unit filename="idrawable.h" />
+		<Unit filename="isteppable.h" />
 		<Unit filename="main.cpp" />
+		<Unit filename="pad.cpp" />
+		<Unit filename="pad.h" />
+		<Unit filename="padview.cpp" />
+		<Unit filename="padview.h" />
+		<Unit filename="vector.cpp" />
+		<Unit filename="vector.h" />
+		<Unit filename="view.cpp" />
+		<Unit filename="view.h" />
+		<Unit filename="wall.cpp" />
+		<Unit filename="wall.h" />
 		<Extensions>
 			<code_completion />
 			<envvars />
