@@ -1,6 +1,6 @@
 #include "ball.h"
 
-void Ball::step(int elapsed) {
+void Ball::step(float elapsed) {
     /*
      * Az ütközésdetektálás.
      *
@@ -30,9 +30,16 @@ void Ball::step(int elapsed) {
         }
 
         if (nearestNum != -1) {
-            collidables[nearestNum]->doCollide(position, speed, elapsed);
+            collidables[nearestNum]->doCollide(position, speed, elapsed, nearestDist);
             collisionHappened = true;
         }
 
     } while (collisionHappened);
+
+    /*
+     * Itt már elvégeztünk minden elvégzendõ ütközést,
+     * már csak anniy van hátra, hogy a megmaradt idõt elhasználjuk arra,
+     * hogy zavartalanul haladjunk elõre.
+     */
+     position += speed * elapsed;
 }

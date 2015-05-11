@@ -1,6 +1,8 @@
 #ifndef VECTOR_H_INCLUDED
 #define VECTOR_H_INCLUDED
 
+#include <cmath>
+
 struct Vector {
     float x, y;
 
@@ -11,6 +13,8 @@ struct Vector {
     Vector operator+ (const Vector& other);
     Vector& operator*= (float n);
     Vector& operator+= (const Vector& other);
+
+    float length();
 };
 
 #endif // VECTOR_H_INCLUDED

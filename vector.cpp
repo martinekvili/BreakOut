@@ -17,3 +17,7 @@ Vector& Vector::operator+= (const Vector& other) {
     *this = *this + other;
     return *this;
 }
+
+float Vector::length() {
+    return sqrtf(x * x + y * y);
+}

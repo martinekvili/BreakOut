@@ -4,7 +4,7 @@
 #include "isteppable.h"
 #include "game.h"
 
-class Ball : public ISteppable {
+class Ball final : public ISteppable {
     Vector position;
     Vector speed;
 
@@ -13,7 +13,7 @@ class Ball : public ISteppable {
 public:
     Ball(Vector position, Vector speed, Game& game) : position{position}, speed{speed}, game(game) {}
 
-    void step(int elapsed);
+    void step(float elapsed) override final;
 };
 
 #endif // BALL_H_INCLUDED
