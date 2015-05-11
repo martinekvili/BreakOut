@@ -1,0 +1,38 @@
+#include "ball.h"
+
+void Ball::step(int elapsed) {
+    /*
+     * Az ütközésdetektálás.
+     *
+     * Végigmegyünk az ütközhetõ elemeken, és megkeressük azt,
+     * akivel elõször ütközik, ha ütközik egyáltalán.
+     * Ha találtunk ilyet, akkor az ütközés helyére tesszük a labdát,
+     * a megváltozott sebességgel, majd elölrõl kezdjük a folyamatot:
+     * hisz lehet, hogy egy idõintervallum alatt több elemmel is ütközött.
+     */
+    bool collisionHappened;
+    do {
+        collisionHappened = false;
+
+        auto collidables = game.getCollidables();
+        int nearestNum = -1;
+        float nearestDist = -1.1;
+
+        for (int i = 0; i < (int) collidables.size(); i++) {
+            float dist = collidables[i]->tryCollide(position, speed, elapsed);
+
+            if (dist < -1) {
+                if (nearestDist < -1 || dist  < nearestDist) {
+                    nearestNum = i;
+                    nearestDist = dist;
+                }
+            }
+        }
+
+        if (nearestNum != -1) {
+            collidables[nearestNum]->doCollide(position, speed, elapsed);
+            collisionHappened = true;
+        }
+
+    } while (collisionHappened);
+}

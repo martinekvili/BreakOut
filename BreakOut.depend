@@ -1,5 +1,5 @@
 # depslib dependency file v1.0
-1431300568 source:e:\github\breakout\main.cpp
+1431300802 source:e:\github\breakout\main.cpp
 	<iostream>
 	"graphics.h"
 
@@ -11,4 +11,29 @@
 
 1431300695 source:e:\github\breakout\graphics.cpp
 	"graphics.h"
+
+1431334818 source:e:\github\breakout\game.cpp
+
+1431339595 source:e:\github\breakout\ball.cpp
+	"ball.h"
+
+1431338987 e:\github\breakout\ball.h
+	"isteppable.h"
+	"game.h"
+
+1431336158 e:\github\breakout\isteppable.h
+
+1431339542 e:\github\breakout\game.h
+	<vector>
+	<memory>
+	"isteppable.h"
+	"icollidable.h"
+
+1431339535 e:\github\breakout\icollidable.h
+	"vector.h"
+
+1431339356 e:\github\breakout\vector.h
+
+1431339653 source:e:\github\breakout\vector.cpp
+	"vector.h"
 
