@@ -1,0 +1,14 @@
+# depslib dependency file v1.0
+1431300568 source:e:\github\breakout\main.cpp
+	<iostream>
+	"graphics.h"
+
+1431300229 e:\github\breakout\graphics.h
+	<GL/gl.h>
+	<GL/glu.h>
+	<GL/glut.h>
+	<functional>
+
+1431300695 source:e:\github\breakout\graphics.cpp
+	"graphics.h"
+
