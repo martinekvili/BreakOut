@@ -11,7 +11,7 @@ class Ball final : public ISteppable {
     Game& game;
 
 public:
-    Ball(Vector position, Vector speed, Game& game) : position{position}, speed{speed}, game(game) {}
+    Ball(Vector position, Vector speed, Game& game, View& view);
 
     Vector getPosition() { return position; }
 

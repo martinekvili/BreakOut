@@ -1,5 +1,11 @@
 #include "ball.h"
 
+#include "ballview.h"
+
+Ball::Ball(Vector position, Vector speed, Game& game, View& view) : position{position}, speed{speed}, game(game) {
+        view.addDrawable(new BallView{*this});
+    }
+
 void Ball::step(float elapsed) {
     /*
      * Az ütközésdetektálás.

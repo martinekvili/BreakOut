@@ -8,9 +8,7 @@ void Game::addObject(ICollidable *elem) {
 }
 
 Game::Game(View& view) {
-    Ball *b = new Ball(Vector{80, 45}, Vector{100, 100}, *this);
-    ball = std::shared_ptr<ISteppable>{b};
-    view.addDrawable(new BallView(*b));
+    ball = std::shared_ptr<ISteppable>{new Ball(Vector{80, 45}, Vector{100, 100}, *this, view)};
 
     pad = new Pad();
 
