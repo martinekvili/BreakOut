@@ -6,6 +6,8 @@
 
 #include "isteppable.h"
 #include "icollidable.h"
+#include "wall.h"
+#include "view.h"
 
 class Game {
     std::shared_ptr<ISteppable> ball;
@@ -14,13 +16,17 @@ class Game {
 
     int points;
 
+    void addObject(ICollidable *elem);
+
 public:
-    //Game();
+    Game(View& view);
 
     Game(const Game& other) = delete;
     Game& operator= (const Game& other) = delete;
 
     std::vector<std::shared_ptr<ICollidable>> getCollidables();
+
+    void step(float elapsed);
 };
 
 #endif // GAME_H_INCLUDED

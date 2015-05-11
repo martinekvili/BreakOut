@@ -1,37 +1,43 @@
 # depslib dependency file v1.0
-1431350042 source:e:\github\breakout\main.cpp
+1431354625 source:e:\github\breakout\main.cpp
 	<iostream>
 	"graphics.h"
+	"game.h"
+	"view.h"
 
-1431349828 e:\github\breakout\graphics.h
+1431354226 e:\github\breakout\graphics.h
 	<GL/gl.h>
 	<GL/glu.h>
 	<GL/glut.h>
 	<functional>
 	<cmath>
 
-1431350162 source:e:\github\breakout\graphics.cpp
+1431354374 source:e:\github\breakout\graphics.cpp
 	"graphics.h"
 
-1431339713 source:e:\github\breakout\game.cpp
+1431354731 source:e:\github\breakout\game.cpp
 	"game.h"
+	"ball.h"
+	"ballview.h"
 
-1431349515 source:e:\github\breakout\ball.cpp
+1431354598 source:e:\github\breakout\ball.cpp
 	"ball.h"
 
-1431349522 e:\github\breakout\ball.h
+1431353190 e:\github\breakout\ball.h
 	"isteppable.h"
 	"game.h"
 
-1431349531 e:\github\breakout\isteppable.h
+1431351627 e:\github\breakout\isteppable.h
 
-1431339542 e:\github\breakout\game.h
+1431353530 e:\github\breakout\game.h
 	<vector>
 	<memory>
 	"isteppable.h"
 	"icollidable.h"
+	"wall.h"
+	"view.h"
 
-1431349301 e:\github\breakout\icollidable.h
+1431351644 e:\github\breakout\icollidable.h
 	"vector.h"
 
 1431342552 e:\github\breakout\vector.h
@@ -45,4 +51,22 @@
 
 1431349284 e:\github\breakout\wall.h
 	"icollidable.h"
+
+1431353410 source:e:\github\breakout\view.cpp
+	"view.h"
+
+1431352854 e:\github\breakout\view.h
+	<vector>
+	<memory>
+	"idrawable.h"
+
+1431351681 e:\github\breakout\idrawable.h
+	"graphics.h"
+
+1431353228 source:e:\github\breakout\ballview.cpp
+	"ballview.h"
+
+1431353149 e:\github\breakout\ballview.h
+	"graphics.h"
+	"ball.h"
 

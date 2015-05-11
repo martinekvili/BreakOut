@@ -13,6 +13,8 @@ class Ball final : public ISteppable {
 public:
     Ball(Vector position, Vector speed, Game& game) : position{position}, speed{speed}, game(game) {}
 
+    Vector getPosition() { return position; }
+
     void step(float elapsed) override final;
 };
 

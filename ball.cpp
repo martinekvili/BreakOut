@@ -21,7 +21,7 @@ void Ball::step(float elapsed) {
         for (int i = 0; i < (int) collidables.size(); i++) {
             float dist = collidables[i]->tryCollide(position, speed, elapsed);
 
-            if (dist < -1) {
+            if (dist > 0) {
                 if (nearestDist < -1 || dist  < nearestDist) {
                     nearestNum = i;
                     nearestDist = dist;

@@ -11,8 +11,11 @@ class Graphics {
     static int screenWidth, screenHeight;
     static int worldWidth, worldHeight;
 
+    static int startTime;
+
     static std::function<void()> onDisplayCallback;
     static std::function<void(float, float)> mouseMotionCallback;
+    static std::function<void(float)> idleCallback;
 
     static void onKeyboard(unsigned char key, int x, int y);
     static void onKeyboardUp(unsigned char key, int x, int y);
@@ -30,7 +33,9 @@ public:
     };
 
     static void setValues(int screenWidth, int screenHeight, int worldWidth, int worldHeight);
-    static void setCallbacks(std::function<void()> onDisplayCallback, std::function<void(float, float)> mouseMotionCallback);
+    static void setCallbacks(std::function<void()> onDisplayCallback,
+                             std::function<void(float, float)> mouseMotionCallback,
+                             std::function<void(float)> idleCallback);
 
     static void initialize(int* argc, char** argv);
 
