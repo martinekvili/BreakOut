@@ -5,6 +5,7 @@
 #include <GL/glu.h>
 #include <GL/glut.h>
 #include <functional>
+#include <cmath>
 
 class Graphics {
     static int screenWidth, screenHeight;
@@ -34,6 +35,7 @@ public:
     static void initialize(int* argc, char** argv);
 
     static void drawRect(float x, float y, float width, float height, Color color);
+    static void drawCircle(float x, float y, float r, Color color);
 };
 
 #endif // GRAPHICS_H_INCLUDED

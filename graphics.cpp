@@ -46,6 +46,18 @@ void Graphics::drawRect(float x, float y, float width, float height, Color color
     glEnd();
 }
 
+void Graphics::drawCircle(float x, float y, float r, Color color) {
+    glColor3f(color.r, color.g, color.b);
+
+    glBegin(GL_POLYGON);
+
+    for (float t = 0; t <= 2 * 3.141592; t += 0.1) {
+        glVertex2f(x + r * cos(t), y + r * sin(t));
+    }
+
+    glEnd();
+}
+
 void Graphics::setValues(int sW, int sH, int wW, int wH) {
     screenWidth = sW;
     screenHeight = sH;
@@ -73,7 +85,6 @@ void Graphics::initialize(int* argc, char** argv) {
     gluOrtho2D(0, worldWidth, 0, worldHeight);
 
     glViewport(0, 0, screenWidth, screenHeight);
-
 
     glutDisplayFunc(onDisplay);
     glutMouseFunc(onMouse);

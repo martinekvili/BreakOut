@@ -1,24 +1,25 @@
 # depslib dependency file v1.0
-1431300802 source:e:\github\breakout\main.cpp
+1431350042 source:e:\github\breakout\main.cpp
 	<iostream>
 	"graphics.h"
 
-1431300229 e:\github\breakout\graphics.h
+1431349828 e:\github\breakout\graphics.h
 	<GL/gl.h>
 	<GL/glu.h>
 	<GL/glut.h>
 	<functional>
+	<cmath>
 
-1431300695 source:e:\github\breakout\graphics.cpp
+1431350162 source:e:\github\breakout\graphics.cpp
 	"graphics.h"
 
 1431339713 source:e:\github\breakout\game.cpp
 	"game.h"
 
-1431340017 source:e:\github\breakout\ball.cpp
+1431349515 source:e:\github\breakout\ball.cpp
 	"ball.h"
 
-1431342858 e:\github\breakout\ball.h
+1431349522 e:\github\breakout\ball.h
 	"isteppable.h"
 	"game.h"
 
@@ -39,9 +40,9 @@
 1431342576 source:e:\github\breakout\vector.cpp
 	"vector.h"
 
-1431342408 source:e:\github\breakout\wall.cpp
+1431349471 source:e:\github\breakout\wall.cpp
 	"wall.h"
 
-1431342839 e:\github\breakout\wall.h
+1431349284 e:\github\breakout\wall.h
 	"icollidable.h"
 
