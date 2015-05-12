@@ -1,7 +1,7 @@
 #include "game.h"
 
 #include "ball.h"
-#include "ballview.h"
+#include "brick.h"
 
 void Game::addObject(ICollidable *elem) {
     objects.push_back(std::shared_ptr<ICollidable>{elem});
@@ -17,6 +17,8 @@ Game::Game(View& view) : isRunning{true} {
     addObject(new Wall{Vector{160, 0}, 90, Wall::Direction::vertical});
     //addObject(new Wall{Vector{0, 0}, 160, Wall::Direction::horizontal});
     addObject(new Wall{Vector{0, 90}, 160, Wall::Direction::horizontal});
+
+    addObject(new Brick{50, 50, 50, 10, *this, view});
 }
 
 std::vector<std::shared_ptr<ICollidable>> Game::getCollidables() {

@@ -93,3 +93,22 @@
 	"pad.h"
 	"graphics.h"
 
+1431427736 source:e:\github\breakout\brickview.cpp
+	"brickview.h"
+
+1431427558 e:\github\breakout\brickview.h
+	"graphics.h"
+	"idrawable.h"
+	"brick.h"
+
+1431427781 e:\github\breakout\brick.h
+	<vector>
+	"vector.h"
+	"wall.h"
+	"game.h"
+	"view.h"
+
+1431427795 source:e:\github\breakout\brick.cpp
+	"brick.h"
+	"brickview.h"
+
