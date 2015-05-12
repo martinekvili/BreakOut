@@ -3,13 +3,15 @@
 
 #include "graphics.h"
 #include "idrawable.h"
-#include "brick.h"
+#include "vector.h"
 
 class BrickView : public IDrawable {
-    Brick& brick;
+    Vector position;
+    float width, height;
 
 public:
-    BrickView(Brick& brick) : brick(brick) {}
+    BrickView(Vector position, float width, float height) :
+        position{position}, width{width}, height{height} {}
 
     void draw() override final;
 };

@@ -1,8 +1,11 @@
 #ifndef GAME_H_INCLUDED
 #define GAME_H_INCLUDED
 
+#include <iostream>
+
 #include <vector>
 #include <memory>
+#include <algorithm>
 
 #include "isteppable.h"
 #include "icollidable.h"
@@ -19,6 +22,7 @@ class Game {
     int points;
 
     void addObject(ICollidable *elem);
+    void buildWall(View& view);
 
 public:
     Game(View& view);
@@ -32,6 +36,8 @@ public:
     void setPadPosition(float x, float y);
 
     void stop();
+
+    void removeObject(ICollidable *elem);
 };
 
 #endif // GAME_H_INCLUDED
