@@ -29,7 +29,7 @@ void Graphics::onMouse(int button, int state, int x, int y) {
 void Graphics::onMouseMotion(int x, int y) {
     mouseMotionCallback( (float) x / screenWidth * worldWidth,  (1 - (float) y / screenHeight) * worldHeight );
 
-    glutPostRedisplay();
+    //glutPostRedisplay();
 }
 
 void Graphics::onTick(int) {
@@ -42,7 +42,7 @@ void Graphics::onTick(int) {
 
     glutPostRedisplay();
 
-    glutTimerFunc(10, onTick, 0);
+    glutTimerFunc(16, onTick, 0);
 }
 
 void Graphics::drawRect(float x, float y, float width, float height, Color color) {
@@ -68,6 +68,22 @@ void Graphics::drawCircle(float x, float y, float r, Color color) {
     }
 
     glEnd();
+}
+
+void Graphics::drawText(float x, float y, const char* text)
+{
+    glColor3f(1.0, 1.0, 1.0);
+
+    glPushMatrix();
+    glTranslatef(x, y, 0);
+    glScalef(1/70.0, 1/70.0, 1/70.0);
+
+    for( const char* p = text; *p != '\0'; p++)
+    {
+        glutStrokeCharacter(GLUT_STROKE_ROMAN, *p);
+    }
+
+    glPopMatrix();
 }
 
 void Graphics::setValues(int sW, int sH, int wW, int wH) {
@@ -109,7 +125,7 @@ void Graphics::initialize(int* argc, char** argv) {
 
     startTime = glutGet(GLUT_ELAPSED_TIME);
     // Körülbelül 60 fps
-    glutTimerFunc(10, onTick, 0);
+    glutTimerFunc(16, onTick, 0);
 
     glutMainLoop();
 }

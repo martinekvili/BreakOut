@@ -44,6 +44,7 @@ public:
 
     static void drawRect(float x, float y, float width, float height, Color color);
     static void drawCircle(float x, float y, float r, Color color);
+    static void drawText(float x, float y, const char* text);
 };
 
 #endif // GRAPHICS_H_INCLUDED
