@@ -13,7 +13,7 @@ void Ball::step(float elapsed) {
      * mert már vége a játéknak.
      */
     if (position.y < 0) {
-        game.stop();
+        game.setGameState(Game::GameState::lost);
     }
 
     /*

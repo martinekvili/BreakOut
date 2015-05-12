@@ -3,6 +3,7 @@
 
 struct ISteppable {
     virtual void step(float elapsed) = 0;
+    virtual void setPosition(float x, float y) = 0;
 
     virtual ~ISteppable() {}
 };

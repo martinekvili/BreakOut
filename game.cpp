@@ -20,6 +20,9 @@ void Game::removeObject(ICollidable *elem) {
     objects.erase(last, objects.end());
 
     brickCounter--;
+    if (brickCounter == 0) {
+        gameState = GameState::won;
+    }
 }
 
 void Game::buildWall(View& view) {
@@ -30,8 +33,8 @@ void Game::buildWall(View& view) {
     }
 }
 
-Game::Game(View& view) : isRunning{true}, brickCounter{0} {
-    ball = std::shared_ptr<ISteppable>{new Ball(Vector{80, 20}, Vector{50, 50}, *this, view)};
+Game::Game(View& view) : gameState{GameState::notstarted}, brickCounter{0} {
+    ball = std::shared_ptr<ISteppable>{new Ball(Vector{80, 4}, Vector{50, 50}, *this, view)};
 
     pad = new Pad(view);
 
@@ -49,15 +52,15 @@ std::vector<std::shared_ptr<ICollidable>> Game::getCollidables() {
 }
 
 void Game::step(float elapsed) {
-    if (isRunning && brickCounter > 0) {
+    if (gameState == GameState::running) {
         ball->step(elapsed);
     }
 }
 
 void Game::setPadPosition(float x, float y) {
     pad->setPosition(x, y);
-}
 
-void Game::stop() {
-    isRunning = false;
+    if (gameState == GameState::notstarted) {
+        ball->setPosition(x, y);
+    }
 }

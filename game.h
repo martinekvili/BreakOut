@@ -14,11 +14,20 @@
 #include "pad.h"
 
 class Game {
+public:
+    enum GameState {
+        notstarted,
+        running,
+        won,
+        lost
+    };
+
+private:
     std::shared_ptr<ISteppable> ball;
     Pad *pad;
     std::vector<std::shared_ptr<ICollidable>> objects;
 
-    bool isRunning;
+    GameState gameState;
     int brickCounter;
     int points;
 
@@ -36,7 +45,8 @@ public:
     void step(float elapsed);
     void setPadPosition(float x, float y);
 
-    void stop();
+    void setGameState(GameState state) { gameState = state; }
+    GameState getGameState() { return gameState; }
 
     void removeObject(ICollidable *elem);
 };

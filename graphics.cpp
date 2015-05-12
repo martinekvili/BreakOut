@@ -6,6 +6,7 @@ int Graphics::worldWidth = 0, Graphics::worldHeight = 0;
 std::function<void()> Graphics::onDisplayCallback = nullptr;
 std::function<void(float, float)> Graphics::mouseMotionCallback = nullptr;
 std::function<void(float)> Graphics::idleCallback = nullptr;
+std::function<void(float, float)> Graphics::leftClickCallback = nullptr;
 int Graphics::startTime = 0;
 
 void Graphics::onDisplay( ) {
@@ -24,6 +25,12 @@ void Graphics::onKeyboardUp(unsigned char key, int x, int y) {
 }
 
 void Graphics::onMouse(int button, int state, int x, int y) {
+    if (button == GLUT_LEFT_BUTTON && state == GLUT_DOWN) {     // Balklikk
+        int width_ = glutGet(GLUT_WINDOW_WIDTH);
+        int height_ = glutGet(GLUT_WINDOW_HEIGHT);
+
+        leftClickCallback( (float) x / width_ * worldWidth,  (1 - (float) y / height_) * worldHeight );
+    }
 }
 
 void Graphics::onMouseMotion(int x, int y) {
@@ -96,9 +103,11 @@ void Graphics::setValues(int sW, int sH, int wW, int wH) {
 
 void Graphics::setCallbacks(std::function<void()> oDC,
                             std::function<void(float, float)> mMC,
+                            std::function<void(float, float)> lCC,
                             std::function<void(float)> iC) {
     onDisplayCallback = oDC;
     mouseMotionCallback = mMC;
+    leftClickCallback = lCC;
     idleCallback = iC;
 }
 
