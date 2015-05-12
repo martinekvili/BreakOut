@@ -2,7 +2,9 @@
 #define PAD_H_INCLUDED
 
 #include "wall.h"
-#include "view.h"
+//#include "view.h"
+
+class View;
 
 class Pad final : public ICollidable {
     Wall surface;

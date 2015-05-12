@@ -17,4 +17,16 @@ void View::draw() {
     for (auto elem : objects) {
         elem->draw();
     }
+
+    std::stringstream ss;
+    ss << game->getPoints();
+    Graphics::drawText(150, 85, ss.str().c_str());
+}
+
+void View::setGame(Game *g) {
+    if (game != nullptr) {
+        objects.clear();
+    }
+
+    game = g;
 }

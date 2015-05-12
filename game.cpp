@@ -33,7 +33,9 @@ void Game::buildWall(View& view) {
     }
 }
 
-Game::Game(View& view) : gameState{GameState::notstarted}, brickCounter{0} {
+Game::Game(View& view, int points) : gameState{GameState::notstarted}, brickCounter{0}, points{points} {
+    view.setGame(this);
+
     ball = std::shared_ptr<ISteppable>{new Ball(Vector{80, 4}, Vector{50, 50}, *this, view)};
 
     pad = new Pad(view);
@@ -44,7 +46,10 @@ Game::Game(View& view) : gameState{GameState::notstarted}, brickCounter{0} {
     //addObject(new Wall{Vector{0, 0}, 160, Wall::Direction::horizontal});
     addObject(new Wall{Vector{0, 90}, 160, Wall::Direction::horizontal});
 
-    buildWall(view);
+    addObject(new Brick{0, 54, 160, 9, *this, view}, true);
+    addObject(new Brick{0, 63, 160, 9, *this, view}, true);
+
+    //buildWall(view);
 }
 
 std::vector<std::shared_ptr<ICollidable>> Game::getCollidables() {

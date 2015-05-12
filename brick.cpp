@@ -41,6 +41,5 @@ void Brick::doCollide(Vector &start, Vector &speed, float &time, float dist) {
     walls[collidedNum].doCollide(start, speed, time, dist);
 
     game.removeObject(this);
-
-    // TODO: kill me
+    game.incrementPoints();
 }

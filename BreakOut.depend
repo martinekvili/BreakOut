@@ -1,5 +1,5 @@
 # depslib dependency file v1.0
-1431449227 source:e:\github\breakout\main.cpp
+1431466560 source:e:\github\breakout\main.cpp
 	<iostream>
 	<sstream>
 	<string>
@@ -15,16 +15,17 @@
 	<functional>
 	<cmath>
 
-1431449136 source:e:\github\breakout\graphics.cpp
+1431449261 source:e:\github\breakout\graphics.cpp
 	"graphics.h"
 
-1431448671 source:e:\github\breakout\game.cpp
+1431465892 source:e:\github\breakout\game.cpp
 	"game.h"
 	"ball.h"
 	"brick.h"
 
-1431448036 source:e:\github\breakout\ball.cpp
+1431464644 source:e:\github\breakout\ball.cpp
 	"ball.h"
+	"view.h"
 	"ballview.h"
 
 1431448650 e:\github\breakout\ball.h
@@ -33,7 +34,7 @@
 
 1431448496 e:\github\breakout\isteppable.h
 
-1431448581 e:\github\breakout\game.h
+1431467540 e:\github\breakout\game.h
 	<iostream>
 	<vector>
 	<memory>
@@ -41,7 +42,6 @@
 	"isteppable.h"
 	"icollidable.h"
 	"wall.h"
-	"view.h"
 	"pad.h"
 
 1431351644 e:\github\breakout\icollidable.h
@@ -59,14 +59,17 @@
 1431362821 e:\github\breakout\wall.h
 	"icollidable.h"
 
-1431442879 source:e:\github\breakout\view.cpp
+1431464704 source:e:\github\breakout\view.cpp
 	"view.h"
 
-1431442865 e:\github\breakout\view.h
+1431464375 e:\github\breakout\view.h
 	<vector>
 	<memory>
 	<algorithm>
+	<sstream>
+	<string>
 	"idrawable.h"
+	"game.h"
 
 1431351681 e:\github\breakout\idrawable.h
 	"graphics.h"
@@ -74,16 +77,17 @@
 1431363360 source:e:\github\breakout\ballview.cpp
 	"ballview.h"
 
-1431353149 e:\github\breakout\ballview.h
+1431464623 e:\github\breakout\ballview.h
 	"graphics.h"
 	"ball.h"
+	"idrawable.h"
 
-1431363029 e:\github\breakout\pad.h
+1431464573 e:\github\breakout\pad.h
 	"wall.h"
-	"view.h"
 
-1431447007 source:e:\github\breakout\pad.cpp
+1431464691 source:e:\github\breakout\pad.cpp
 	"pad.h"
+	"view.h"
 	"padview.h"
 
 1431363067 source:e:\github\breakout\padview.cpp
@@ -110,6 +114,6 @@
 	"view.h"
 	"brickview.h"
 
-1431442843 source:e:\github\breakout\brick.cpp
+1431463726 source:e:\github\breakout\brick.cpp
 	"brick.h"
 

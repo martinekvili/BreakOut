@@ -10,8 +10,9 @@
 #include "isteppable.h"
 #include "icollidable.h"
 #include "wall.h"
-#include "view.h"
 #include "pad.h"
+
+class View;
 
 class Game {
 public:
@@ -35,10 +36,11 @@ private:
     void buildWall(View& view);
 
 public:
-    Game(View& view);
+    Game(View& view, int points = 0);
+    ~Game() { std::cout << "lefutok am" << std::endl;}
 
-    Game(const Game& other) = delete;
-    Game& operator= (const Game& other) = delete;
+    //Game(const Game& other) = default;
+    //Game& operator= (const Game& other) = default;
 
     std::vector<std::shared_ptr<ICollidable>> getCollidables();
 
@@ -49,6 +51,9 @@ public:
     GameState getGameState() { return gameState; }
 
     void removeObject(ICollidable *elem);
+
+    void incrementPoints() { points += 10; }
+    int getPoints() { return points; }
 };
 
 #endif // GAME_H_INCLUDED

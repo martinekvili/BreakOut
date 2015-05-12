@@ -19,14 +19,33 @@ int main(int argc, char **argv) {
 
     Graphics::setValues(960, 540, 160, 90);
 
-    auto paintCallback = [&view, start, &cntr, &ss] {
-                                view.draw();
-                                ss << (float) cntr++ / (GetTickCount() - start) * 1000;
-                                Graphics::drawText(10, 80, ss.str().c_str());
-                                ss.str("");
+    auto paintCallback = [&view, &game, start, &cntr, &ss] {
+                                switch (game.getGameState()) {
+                                    case Game::GameState::notstarted :
+                                    case Game::GameState::running :
+                                        view.draw();
+                                        ss << (float) cntr++ / (GetTickCount() - start) * 1000;
+                                        Graphics::drawText(10, 80, ss.str().c_str());
+                                        ss.str("");
+                                        break;
+
+                                    case Game::GameState::lost :
+                                        Graphics::drawText(80, 40, "Game over");
+                                        break;
+
+                                    case Game::GameState::won :
+                                        Graphics::drawText(80, 40, "You won!");
+                                        break;
+                                }
                                 };
 
-    auto tickCallback = [&game] (float elapsed) { game.step(elapsed); };
+    auto tickCallback = [&game, &view] (float elapsed) {
+                            if (game.getGameState() == Game::GameState::won) {
+                                //game = Game{view, game.getPoints()};
+                            } else {
+                                game.step(elapsed);
+                            }
+                            };
 
     auto mouseMotionCallback = [&game] (float x, float y) { game.setPadPosition(x, y); };
 
@@ -38,4 +57,6 @@ int main(int argc, char **argv) {
                             tickCallback );
 
     Graphics::initialize(&argc, argv);
+
+    std::cout << "ide" << std::endl;
 }

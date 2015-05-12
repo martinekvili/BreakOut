@@ -1,5 +1,6 @@
 #include "pad.h"
 
+#include "view.h"
 #include "padview.h"
 
 Pad::Pad(View& view) : surface{Vector{70, 2.5}, 20, Wall::Direction::horizontal} {

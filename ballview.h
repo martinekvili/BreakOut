@@ -3,6 +3,7 @@
 
 #include "graphics.h"
 #include "ball.h"
+#include "idrawable.h"
 
 class BallView final : public IDrawable {
     Ball& ball;

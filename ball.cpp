@@ -1,5 +1,6 @@
 #include "ball.h"
 
+#include "view.h"
 #include "ballview.h"
 
 Ball::Ball(Vector position, Vector speed, Game& game, View& view) : position{position}, speed{speed}, game(game) {
