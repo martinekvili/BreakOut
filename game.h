@@ -19,9 +19,10 @@ class Game {
     std::vector<std::shared_ptr<ICollidable>> objects;
 
     bool isRunning;
+    int brickCounter;
     int points;
 
-    void addObject(ICollidable *elem);
+    void addObject(ICollidable *elem, bool isCounted = false);
     void buildWall(View& view);
 
 public:

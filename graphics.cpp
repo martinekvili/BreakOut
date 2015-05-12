@@ -27,9 +27,10 @@ void Graphics::onMouse(int button, int state, int x, int y) {
 }
 
 void Graphics::onMouseMotion(int x, int y) {
-    mouseMotionCallback( (float) x / screenWidth * worldWidth,  (1 - (float) y / screenHeight) * worldHeight );
+    int width_ = glutGet(GLUT_WINDOW_WIDTH);
+    int height_ = glutGet(GLUT_WINDOW_HEIGHT);
 
-    //glutPostRedisplay();
+    mouseMotionCallback( (float) x / width_ * worldWidth,  (1 - (float) y / height_) * worldHeight );
 }
 
 void Graphics::onTick(int) {

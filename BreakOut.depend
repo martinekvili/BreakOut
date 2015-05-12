@@ -20,7 +20,7 @@
 1431422679 source:e:\github\breakout\graphics.cpp
 	"graphics.h"
 
-1431443242 source:e:\github\breakout\game.cpp
+1431446220 source:e:\github\breakout\game.cpp
 	"game.h"
 	"ball.h"
 	"brick.h"
@@ -35,7 +35,7 @@
 
 1431351627 e:\github\breakout\isteppable.h
 
-1431443225 e:\github\breakout\game.h
+1431446238 e:\github\breakout\game.h
 	<iostream>
 	<vector>
 	<memory>
@@ -84,7 +84,7 @@
 	"wall.h"
 	"view.h"
 
-1431363048 source:e:\github\breakout\pad.cpp
+1431447007 source:e:\github\breakout\pad.cpp
 	"pad.h"
 	"padview.h"
 
