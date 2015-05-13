@@ -9,7 +9,6 @@
 #include "view.h"
 
 int main(int argc, char **argv) {
-    //float x = 0, y = 0;
     View view{};
     std::shared_ptr<Game> game{new Game{view}};
 
@@ -17,7 +16,7 @@ int main(int argc, char **argv) {
     int cntr = 0;
     std::stringstream ss;
 
-    Graphics::setValues(960, 540, 160, 90);
+    Graphics::setWorld(160, 90);
 
     auto paintCallback = [&view, &game, start, &cntr, &ss] {
                                 switch (game->getGameState()) {
@@ -48,7 +47,7 @@ int main(int argc, char **argv) {
 
     auto mouseMotionCallback = [&game] (float x, float y) { game->setPadPosition(x, y); };
 
-    auto leftClickCallback = [&game] (float x, float y) {
+    auto leftClickCallback = [&game] {
                                 if (game->getGameState() == Game::GameState::notstarted) {
                                     game->setGameState(Game::GameState::running);
                                 }
@@ -59,7 +58,7 @@ int main(int argc, char **argv) {
                             leftClickCallback,
                             tickCallback );
 
-    Graphics::initialize(&argc, argv);
+    Graphics::initialize(&argc, argv, 960, 540);
 
     //std::cout << "ide" << std::endl;
 }

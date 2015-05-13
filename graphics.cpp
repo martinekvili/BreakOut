@@ -1,13 +1,12 @@
 #include "graphics.h"
 
-int Graphics::screenWidth = 0, Graphics::screenHeight = 0;
 int Graphics::worldWidth = 0, Graphics::worldHeight = 0;
 bool Graphics::running = true;
 
 std::function<void()> Graphics::onDisplayCallback = nullptr;
 std::function<void(float, float)> Graphics::mouseMotionCallback = nullptr;
 std::function<void(float)> Graphics::idleCallback = nullptr;
-std::function<void(float, float)> Graphics::leftClickCallback = nullptr;
+std::function<void()> Graphics::leftClickCallback = nullptr;
 int Graphics::startTime = 0;
 
 void Graphics::onDisplay( ) {
@@ -19,18 +18,9 @@ void Graphics::onDisplay( ) {
     glutSwapBuffers();
 }
 
-void Graphics::onKeyboard(unsigned char key, int x, int y) {
-}
-
-void Graphics::onKeyboardUp(unsigned char key, int x, int y) {
-}
-
 void Graphics::onMouse(int button, int state, int x, int y) {
     if (button == GLUT_LEFT_BUTTON && state == GLUT_DOWN) {     // Balklikk
-        int width_ = glutGet(GLUT_WINDOW_WIDTH);
-        int height_ = glutGet(GLUT_WINDOW_HEIGHT);
-
-        leftClickCallback( (float) x / width_ * worldWidth,  (1 - (float) y / height_) * worldHeight );
+        leftClickCallback();
     }
 }
 
@@ -103,16 +93,14 @@ void Graphics::drawText(float x, float y, const char* text)
     glPopMatrix();
 }
 
-void Graphics::setValues(int sW, int sH, int wW, int wH) {
-    screenWidth = sW;
-    screenHeight = sH;
+void Graphics::setWorld(int wW, int wH) {
     worldWidth = wW;
     worldHeight = wH;
 }
 
 void Graphics::setCallbacks(std::function<void()> oDC,
                             std::function<void(float, float)> mMC,
-                            std::function<void(float, float)> lCC,
+                            std::function<void()> lCC,
                             std::function<void(float)> iC) {
     onDisplayCallback = oDC;
     mouseMotionCallback = mMC;
@@ -120,7 +108,7 @@ void Graphics::setCallbacks(std::function<void()> oDC,
     idleCallback = iC;
 }
 
-void Graphics::initialize(int* argc, char** argv) {
+void Graphics::initialize(int* argc, char** argv, int screenWidth, int screenHeight) {
     glutInit(argc, argv);
     glutInitWindowSize(screenWidth, screenHeight);
     glutInitWindowPosition(100, 100);
@@ -138,8 +126,6 @@ void Graphics::initialize(int* argc, char** argv) {
 
     glutDisplayFunc(onDisplay);
     glutMouseFunc(onMouse);
-    glutKeyboardFunc(onKeyboard);
-    glutKeyboardUpFunc(onKeyboardUp);
     glutPassiveMotionFunc(onMouseMotion);
     glutCloseFunc(onClose);
 
