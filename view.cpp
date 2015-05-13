@@ -22,8 +22,12 @@ void View::draw() {
     ss << game->getPoints();
     Graphics::drawText(150, 85, ss.str().c_str());
 
+    ss.str("");
+    ss << "Stage " << game->getRound() + 1;
+    Graphics::drawText(25, 85, ss.str().c_str());
+
     for (int i = 0; i < game->getLives(); i++) {
-        Graphics::drawCircle(10 + i * 2.5, 85, 1.0, Graphics::Color{0, 1.0, 0});
+        Graphics::drawCircle(10 + i * 2.5, 86.0, 1.0, Graphics::Color{0, 1.0, 0});
     }
 }
 

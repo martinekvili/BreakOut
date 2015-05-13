@@ -34,12 +34,13 @@ private:
     int brickCounter;
     int points;
     int lives;
+    int round;
 
     void addObject(ICollidable *elem, bool isCounted = false);
     void buildWall(View& view);
 
 public:
-    Game(View& view, int points = 0, int lives = 5);
+    Game(View& view, int points = 0, int lives = 5, int round = 0);
 
     //Game(const Game& other) = default;
     //Game& operator= (const Game& other) = default;
@@ -61,6 +62,8 @@ public:
 
     void decrementLives();
     int getLives() { return lives; }
+
+    int getRound() { return round; }
 };
 
 #endif // GAME_H_INCLUDED

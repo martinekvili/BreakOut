@@ -24,6 +24,8 @@ public:
     Vector getPosition() { return position; }
 
     void step(float elapsed) override final;
+
+    static Vector getDefaultSpeedInRound(int roundNum);
 };
 
 #endif // BALL_H_INCLUDED

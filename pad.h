@@ -5,12 +5,15 @@
 //#include "view.h"
 
 class View;
+class Game;
 
 class Pad final : public ICollidable {
     Wall surface;
 
+    Game &game;
+
 public:
-    Pad(View &view);
+    Pad(Game &game, View &view);
 
     float tryCollide(Vector start, Vector speed, float time) override final;
     void doCollide(Vector &start, Vector &speed, float &time, float dist) override final;

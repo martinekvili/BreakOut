@@ -33,23 +33,24 @@ void Game::buildWall(View& view) {
     }
 }
 
-Game::Game(View& view, int points, int lives) : view(view), gameState{GameState::notstarted}, brickCounter{0}, points{points}, lives{lives} {
+Game::Game(View& view, int points, int lives, int round) :
+        view(view), gameState{GameState::notstarted}, brickCounter{0}, points{points}, lives{lives}, round{round} {
     view.setGame(this);
 
-    ball = std::shared_ptr<ISteppable>{new Ball(Vector{80, 4}, Vector{50, 50}, *this, view)};
+    ball = std::shared_ptr<ISteppable>{new Ball(Vector{80, 4}, Ball::getDefaultSpeedInRound(round), *this, view)};
 
-    pad = new Pad(view);
+    pad = new Pad(*this, view);
 
     addObject(pad);
     addObject(new Wall{Vector{0, 0}, 90, Wall::Direction::vertical});
     addObject(new Wall{Vector{160, 0}, 90, Wall::Direction::vertical});
-    //addObject(new Wall{Vector{0, 0}, 160, Wall::Direction::horizontal});
+    addObject(new Wall{Vector{0, 0}, 160, Wall::Direction::horizontal});
     addObject(new Wall{Vector{0, 90}, 160, Wall::Direction::horizontal});
 
-    //addObject(new Brick{0, 54, 160, 9, *this, view}, true);
-    //addObject(new Brick{0, 63, 160, 9, *this, view}, true);
+    addObject(new Brick{0, 54, 160, 9, *this, view}, true);
+    addObject(new Brick{0, 63, 160, 9, *this, view}, true);
 
-    buildWall(view);
+    //buildWall(view);
 }
 
 /*Game& Game::operator= (Game && other) {
@@ -87,7 +88,8 @@ void Game::decrementLives() {
     if (lives == 0) {
         gameState = GameState::lost;
     } else {
-        ball = std::shared_ptr<ISteppable>{new Ball{Vector{pad->getPosition().x + 10.0f, pad->getPosition().y + 1.5f}, Vector{50, 50}, *this, view}};
+        ball = std::shared_ptr<ISteppable>{new Ball{Vector{pad->getPosition().x + 10.0f, pad->getPosition().y + 1.5f},
+                                                    Ball::getDefaultSpeedInRound(round), *this, view}};
 
         gameState = GameState::notstarted;
     }

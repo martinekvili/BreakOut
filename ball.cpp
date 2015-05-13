@@ -64,3 +64,7 @@ void Ball::step(float elapsed) {
      */
      position += speed * elapsed;
 }
+
+Vector Ball::getDefaultSpeedInRound(int roundNum) {
+    return Vector{50.0f + roundNum * 10.0f, 50.0f + roundNum * 10.0f};
+}
