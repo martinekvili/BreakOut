@@ -2,8 +2,6 @@
 #include <sstream>
 #include <string>
 
-#include <windows.h>
-
 #include "graphics.h"
 #include "game.h"
 #include "view.h"
@@ -12,17 +10,10 @@ int main(int argc, char **argv) {
     View view{};
     std::shared_ptr<Game> game{new Game{view}};
 
-    long start = GetTickCount();
-    int cntr = 0;
-    std::stringstream ss;
-
     Graphics::setWorld(160, 90);
 
-    auto paintCallback = [&view, &game, start, &cntr, &ss] {
+    auto paintCallback = [&view] {
                                 view.draw();
-                                ss << (float) cntr++ / (GetTickCount() - start) * 1000;
-                                Graphics::drawText(10, 80, ss.str().c_str());
-                                ss.str("");
                             };
 
     auto tickCallback = [&game, &view] (float elapsed) {
@@ -48,6 +39,4 @@ int main(int argc, char **argv) {
                             tickCallback );
 
     Graphics::initialize(&argc, argv, 960, 540);
-
-    //std::cout << "ide" << std::endl;
 }
