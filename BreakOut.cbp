@@ -37,7 +37,7 @@
 		<Linker>
 			<Add library="opengl32" />
 			<Add library="glu32" />
-			<Add library="glut32" />
+			<Add library="freeglut" />
 		</Linker>
 		<Unit filename="ball.cpp" />
 		<Unit filename="ball.h" />

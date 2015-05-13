@@ -44,7 +44,7 @@ Game::Game(View& view, int points, int lives, int round) :
     addObject(pad);
     addObject(new Wall{Vector{0, 0}, 90, Wall::Direction::vertical});
     addObject(new Wall{Vector{160, 0}, 90, Wall::Direction::vertical});
-    addObject(new Wall{Vector{0, 0}, 160, Wall::Direction::horizontal});
+    //addObject(new Wall{Vector{0, 0}, 160, Wall::Direction::horizontal});
     addObject(new Wall{Vector{0, 90}, 160, Wall::Direction::horizontal});
 
     addObject(new Brick{0, 54, 160, 9, *this, view}, true);
@@ -70,6 +70,7 @@ std::vector<std::shared_ptr<ICollidable>> Game::getCollidables() {
 
 void Game::step(float elapsed) {
     if (gameState == GameState::running) {
+        if (ball.get() == nullptr) std::cout << "but how" << std::endl;
         ball->step(elapsed);
     }
 }
@@ -88,8 +89,8 @@ void Game::decrementLives() {
     if (lives == 0) {
         gameState = GameState::lost;
     } else {
-        ball = std::shared_ptr<ISteppable>{new Ball{Vector{pad->getPosition().x + 10.0f, pad->getPosition().y + 1.5f},
-                                                    Ball::getDefaultSpeedInRound(round), *this, view}};
+        ball.reset(new Ball{Vector{pad->getPosition().x + 10.0f, pad->getPosition().y + 1.5f},
+                                                    Ball::getDefaultSpeedInRound(round), *this, view});
 
         gameState = GameState::notstarted;
     }
