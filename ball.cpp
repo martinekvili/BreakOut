@@ -3,9 +3,14 @@
 #include "view.h"
 #include "ballview.h"
 
-Ball::Ball(Vector position, Vector speed, Game& game, View& view) : position{position}, speed{speed}, game(game) {
-        view.addDrawable(new BallView{*this});
-    }
+Ball::Ball(Vector position, Vector speed, Game& game, View& view) : position{position}, speed{speed}, game(game), view(view) {
+    myView = new BallView{*this};
+    view.addDrawable(myView);
+}
+
+Ball::~Ball() {
+    view.removeDrawable(myView);
+}
 
 void Ball::step(float elapsed) {
     /*
@@ -14,7 +19,7 @@ void Ball::step(float elapsed) {
      * mert már vége a játéknak.
      */
     if (position.y < 0) {
-        game.setGameState(Game::GameState::lost);
+        game.decrementLives();
     }
 
     /*

@@ -18,23 +18,23 @@
 1431511426 source:e:\github\breakout\graphics.cpp
 	"graphics.h"
 
-1431510766 source:e:\github\breakout\game.cpp
+1431515027 source:e:\github\breakout\game.cpp
 	"game.h"
 	"ball.h"
 	"brick.h"
 
-1431464644 source:e:\github\breakout\ball.cpp
+1431515645 source:e:\github\breakout\ball.cpp
 	"ball.h"
 	"view.h"
 	"ballview.h"
 
-1431448650 e:\github\breakout\ball.h
+1431515649 e:\github\breakout\ball.h
 	"isteppable.h"
 	"game.h"
 
 1431448496 e:\github\breakout\isteppable.h
 
-1431510237 e:\github\breakout\game.h
+1431514927 e:\github\breakout\game.h
 	<iostream>
 	<vector>
 	<memory>

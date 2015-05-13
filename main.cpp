@@ -36,7 +36,7 @@ int main(int argc, char **argv) {
                                     default:
                                         break;
                                 }
-                                };
+                            };
 
     auto tickCallback = [&game, &view] (float elapsed) {
                             if (game->getGameState() == Game::GameState::won) {
@@ -44,11 +44,15 @@ int main(int argc, char **argv) {
                             } else {
                                 game->step(elapsed);
                             }
-                            };
+                        };
 
     auto mouseMotionCallback = [&game] (float x, float y) { game->setPadPosition(x, y); };
 
-    auto leftClickCallback = [&game] (float x, float y) { game->setGameState(Game::GameState::running); };
+    auto leftClickCallback = [&game] (float x, float y) {
+                                if (game->getGameState() == Game::GameState::notstarted) {
+                                    game->setGameState(Game::GameState::running);
+                                }
+                            };
 
     Graphics::setCallbacks( paintCallback,
                             mouseMotionCallback,

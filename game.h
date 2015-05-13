@@ -24,6 +24,8 @@ public:
     };
 
 private:
+    View& view;
+
     std::shared_ptr<ISteppable> ball;
     Pad *pad;
     std::vector<std::shared_ptr<ICollidable>> objects;
@@ -31,12 +33,13 @@ private:
     GameState gameState;
     int brickCounter;
     int points;
+    int lives;
 
     void addObject(ICollidable *elem, bool isCounted = false);
     void buildWall(View& view);
 
 public:
-    Game(View& view, int points = 0);
+    Game(View& view, int points = 0, int lives = 5);
 
     //Game(const Game& other) = default;
     //Game& operator= (const Game& other) = default;
@@ -55,6 +58,9 @@ public:
 
     void incrementPoints() { points += 10; }
     int getPoints() { return points; }
+
+    void decrementLives();
+    int getLives() { return lives; }
 };
 
 #endif // GAME_H_INCLUDED

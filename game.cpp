@@ -33,7 +33,7 @@ void Game::buildWall(View& view) {
     }
 }
 
-Game::Game(View& view, int points) : gameState{GameState::notstarted}, brickCounter{0}, points{points} {
+Game::Game(View& view, int points, int lives) : view(view), gameState{GameState::notstarted}, brickCounter{0}, points{points}, lives{lives} {
     view.setGame(this);
 
     ball = std::shared_ptr<ISteppable>{new Ball(Vector{80, 4}, Vector{50, 50}, *this, view)};
@@ -78,5 +78,17 @@ void Game::setPadPosition(float x, float y) {
 
     if (gameState == GameState::notstarted) {
         ball->setPosition(x, y);
+    }
+}
+
+void Game::decrementLives() {
+    lives--;
+
+    if (lives == 0) {
+        gameState = GameState::lost;
+    } else {
+        ball = std::shared_ptr<ISteppable>{new Ball{Vector{pad->getPosition().x + 10.0f, pad->getPosition().y + 1.5f}, Vector{50, 50}, *this, view}};
+
+        gameState = GameState::notstarted;
     }
 }
