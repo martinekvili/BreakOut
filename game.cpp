@@ -19,7 +19,7 @@ void Game::removeObject(ICollidable *elem) {
 
     objects.erase(last, objects.end());
 
-    // Ha nem maradt több tégla, akkor nyertünk
+    // Ha nem maradt tÃ¶bb tÃ©gla, akkor nyertÃ¼nk
     brickCounter--;
     if (brickCounter == 0) {
         gameState = GameState::won;
@@ -59,7 +59,7 @@ void Game::step(float elapsed) {
 void Game::setPadPosition(float x, float y) {
     pad->setPosition(x, y);
 
-    // Ha még nincs elindítva a játék, akkor az ütõvel mozgatjuk a labdát
+    // Ha mÃ©g nincs elindÃ­tva a jÃ¡tÃ©k, akkor az Ã¼tÃµvel mozgatjuk a labdÃ¡t
     if (gameState == GameState::notstarted) {
         ball->setPosition(x, y);
     }
@@ -71,7 +71,8 @@ void Game::decrementLives() {
     if (lives == 0) {
         gameState = GameState::lost;
     } else {
-        // Ha még nincs vége a játéknak, akkor új labdát kapunk
+        // Ha mÃ©g nincs vÃ©ge a jÃ¡tÃ©knak, akkor Ãºj labdÃ¡t kapunk
+        ball.reset(static_cast<Ball*>(nullptr)); // ElÅ‘szÃ¶r tÃ¶rÃ¶ljÃ¼k az elÅ‘zÅ‘ objektumot.
         ball.reset(new Ball{Vector{pad->getPosition().x + 10.0f, pad->getPosition().y + 1.5f},
                                                     Ball::getDefaultSpeedInRound(round), *this, view});
 
