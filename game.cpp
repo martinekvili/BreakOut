@@ -46,11 +46,22 @@ Game::Game(View& view, int points) : gameState{GameState::notstarted}, brickCoun
     //addObject(new Wall{Vector{0, 0}, 160, Wall::Direction::horizontal});
     addObject(new Wall{Vector{0, 90}, 160, Wall::Direction::horizontal});
 
-    addObject(new Brick{0, 54, 160, 9, *this, view}, true);
-    addObject(new Brick{0, 63, 160, 9, *this, view}, true);
+    //addObject(new Brick{0, 54, 160, 9, *this, view}, true);
+    //addObject(new Brick{0, 63, 160, 9, *this, view}, true);
 
-    //buildWall(view);
+    buildWall(view);
 }
+
+/*Game& Game::operator= (Game && other) {
+    ball = std::move(other.ball);
+    pad = other.pad;
+    objects = std::move(other.objects);
+    gameState = other.gameState;
+    points = other.points;
+    brickCounter = other.brickCounter;
+
+    return *this;
+}*/
 
 std::vector<std::shared_ptr<ICollidable>> Game::getCollidables() {
     return objects;

@@ -1,5 +1,5 @@
 # depslib dependency file v1.0
-1431466560 source:e:\github\breakout\main.cpp
+1431510732 source:e:\github\breakout\main.cpp
 	<iostream>
 	<sstream>
 	<string>
@@ -8,17 +8,17 @@
 	"game.h"
 	"view.h"
 
-1431449149 e:\github\breakout\graphics.h
+1431509286 e:\github\breakout\graphics.h
 	<GL/gl.h>
 	<GL/glu.h>
-	<GL/glut.h>
+	<GL/freeglut.h>
 	<functional>
 	<cmath>
 
-1431449261 source:e:\github\breakout\graphics.cpp
+1431511426 source:e:\github\breakout\graphics.cpp
 	"graphics.h"
 
-1431465892 source:e:\github\breakout\game.cpp
+1431510766 source:e:\github\breakout\game.cpp
 	"game.h"
 	"ball.h"
 	"brick.h"
@@ -34,7 +34,7 @@
 
 1431448496 e:\github\breakout\isteppable.h
 
-1431467540 e:\github\breakout\game.h
+1431510237 e:\github\breakout\game.h
 	<iostream>
 	<vector>
 	<memory>

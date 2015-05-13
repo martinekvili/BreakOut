@@ -2,6 +2,7 @@
 
 int Graphics::screenWidth = 0, Graphics::screenHeight = 0;
 int Graphics::worldWidth = 0, Graphics::worldHeight = 0;
+bool Graphics::running = true;
 
 std::function<void()> Graphics::onDisplayCallback = nullptr;
 std::function<void(float, float)> Graphics::mouseMotionCallback = nullptr;
@@ -10,7 +11,7 @@ std::function<void(float, float)> Graphics::leftClickCallback = nullptr;
 int Graphics::startTime = 0;
 
 void Graphics::onDisplay( ) {
-    glClearColor(0.9f, 0.9f, 0.9f, 1.0f);
+    glClearColor(0, 0, 0, 1.0f);
     glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
 
     onDisplayCallback();
@@ -41,6 +42,10 @@ void Graphics::onMouseMotion(int x, int y) {
 }
 
 void Graphics::onTick(int) {
+    if (!running) {
+        return;
+    }
+
     int now = glutGet(GLUT_ELAPSED_TIME);
 
     // Meghívjuk az eltelt másodpercek számával
@@ -51,6 +56,10 @@ void Graphics::onTick(int) {
     glutPostRedisplay();
 
     glutTimerFunc(16, onTick, 0);
+}
+
+void Graphics::onClose() {
+    running = false;
 }
 
 void Graphics::drawRect(float x, float y, float width, float height, Color color) {
@@ -132,10 +141,13 @@ void Graphics::initialize(int* argc, char** argv) {
     glutKeyboardFunc(onKeyboard);
     glutKeyboardUpFunc(onKeyboardUp);
     glutPassiveMotionFunc(onMouseMotion);
+    glutCloseFunc(onClose);
 
     startTime = glutGet(GLUT_ELAPSED_TIME);
     // Körülbelül 60 fps
     glutTimerFunc(16, onTick, 0);
+
+    glutSetOption(GLUT_ACTION_ON_WINDOW_CLOSE, GLUT_ACTION_GLUTMAINLOOP_RETURNS);
 
     glutMainLoop();
 }

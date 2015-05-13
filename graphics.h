@@ -3,7 +3,7 @@
 
 #include <GL/gl.h>
 #include <GL/glu.h>
-#include <GL/glut.h>
+#include <GL/freeglut.h>
 #include <functional>
 #include <cmath>
 
@@ -12,6 +12,7 @@ class Graphics {
     static int worldWidth, worldHeight;
 
     static int startTime;
+    static bool running;
 
     static std::function<void()> onDisplayCallback;
     static std::function<void(float, float)> mouseMotionCallback;
@@ -22,6 +23,7 @@ class Graphics {
     static void onKeyboardUp(unsigned char key, int x, int y);
     static void onMouse(int button, int state, int x, int y);
     static void onMouseMotion(int x, int y);
+    static void onClose();
 
     static void onDisplay();
     static void onTick(int);

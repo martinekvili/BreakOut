@@ -37,10 +37,11 @@ private:
 
 public:
     Game(View& view, int points = 0);
-    ~Game() { std::cout << "lefutok am" << std::endl;}
 
     //Game(const Game& other) = default;
     //Game& operator= (const Game& other) = default;
+
+    Game& operator= (Game && other);
 
     std::vector<std::shared_ptr<ICollidable>> getCollidables();
 
