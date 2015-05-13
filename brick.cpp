@@ -8,7 +8,6 @@ Brick::Brick(float x, float y, float width, float height, Game& game, View& view
     walls.push_back(Wall{Vector{x + width, y}, height, Wall::Direction::vertical});
 
     myView = new BrickView{position, width, height};
-
     view.addDrawable(myView);
 }
 
@@ -20,6 +19,14 @@ float Brick::tryCollide(Vector start, Vector speed, float time) {
     collidedNum = -1;
     float dist = -1.1;
 
+    /*
+     * Megvizsgáljuk az ütközést a tégla mind a 4 falával,
+     * és a legközelebbi találat távolságával térünk vissza.
+     * Eközben eltároljuk a legközelebbi találat sorszámát,
+     * így ha tényleg mi voltunk minden közül a legközelebb,
+     * akkor nem kell újra kikeresni, hogy melyik fal lett
+     * konkrétan eltalálva.
+     */
     for (int i = 0; i < (int) walls.size(); i++) {
         float tmp = walls[i].tryCollide(start, speed, time);
         if (tmp > 0) {
@@ -34,12 +41,10 @@ float Brick::tryCollide(Vector start, Vector speed, float time) {
 }
 
 void Brick::doCollide(Vector &start, Vector &speed, float &time, float dist) {
-    if (collidedNum == -1) {
-        throw "wrong collision";
-    }
-
+    // Megtesszük a találatot az elmentett fal sorszámával
     walls[collidedNum].doCollide(start, speed, time, dist);
 
+    // És elpusztítjuk ezt a falat
     game.removeObject(this);
     game.incrementPoints();
 }
