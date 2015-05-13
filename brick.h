@@ -99,7 +99,7 @@ public:
      * Az ütközést elvégzõ függvény.
      *
      * Beállítja a helyet és a sebességet a megfelelõ értékre,
-     * és levonja az össz idõbõl az elhasznált mennyiséget.
+     * és levonja az összidõbõl az elhasznált mennyiséget.
      *
      * @param start A labda helye.
      * @param speed A labda sebessége.
