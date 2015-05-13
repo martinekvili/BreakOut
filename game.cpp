@@ -19,6 +19,7 @@ void Game::removeObject(ICollidable *elem) {
 
     objects.erase(last, objects.end());
 
+    // Ha nem maradt több tégla, akkor nyertünk
     brickCounter--;
     if (brickCounter == 0) {
         gameState = GameState::won;
@@ -44,33 +45,13 @@ Game::Game(View& view, int points, int lives, int round) :
     addObject(pad);
     addObject(new Wall{Vector{0, 0}, 90, Wall::Direction::vertical});
     addObject(new Wall{Vector{160, 0}, 90, Wall::Direction::vertical});
-    //addObject(new Wall{Vector{0, 0}, 160, Wall::Direction::horizontal});
     addObject(new Wall{Vector{0, 90}, 160, Wall::Direction::horizontal});
 
-    addObject(new Brick{0, 54, 160, 9, *this, view}, true);
-    addObject(new Brick{0, 63, 160, 9, *this, view}, true);
-
-    //buildWall(view);
-}
-
-/*Game& Game::operator= (Game && other) {
-    ball = std::move(other.ball);
-    pad = other.pad;
-    objects = std::move(other.objects);
-    gameState = other.gameState;
-    points = other.points;
-    brickCounter = other.brickCounter;
-
-    return *this;
-}*/
-
-std::vector<std::shared_ptr<ICollidable>> Game::getCollidables() {
-    return objects;
+    buildWall(view);
 }
 
 void Game::step(float elapsed) {
     if (gameState == GameState::running) {
-        if (ball.get() == nullptr) std::cout << "but how" << std::endl;
         ball->step(elapsed);
     }
 }
@@ -78,6 +59,7 @@ void Game::step(float elapsed) {
 void Game::setPadPosition(float x, float y) {
     pad->setPosition(x, y);
 
+    // Ha még nincs elindítva a játék, akkor az ütõvel mozgatjuk a labdát
     if (gameState == GameState::notstarted) {
         ball->setPosition(x, y);
     }
@@ -89,6 +71,7 @@ void Game::decrementLives() {
     if (lives == 0) {
         gameState = GameState::lost;
     } else {
+        // Ha még nincs vége a játéknak, akkor új labdát kapunk
         ball.reset(new Ball{Vector{pad->getPosition().x + 10.0f, pad->getPosition().y + 1.5f},
                                                     Ball::getDefaultSpeedInRound(round), *this, view});
 
