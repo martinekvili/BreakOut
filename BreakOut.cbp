@@ -36,8 +36,8 @@
 		</Compiler>
 		<Linker>
 			<Add library="opengl32" />
-			<Add library="glu32" />
 			<Add library="freeglut" />
+			<Add library="glu32" />
 		</Linker>
 		<Unit filename="ball.cpp" />
 		<Unit filename="ball.h" />
@@ -53,7 +53,6 @@
 		<Unit filename="graphics.h" />
 		<Unit filename="icollidable.h" />
 		<Unit filename="idrawable.h" />
-		<Unit filename="isteppable.h" />
 		<Unit filename="main.cpp" />
 		<Unit filename="pad.cpp" />
 		<Unit filename="pad.h" />

@@ -1,5 +1,5 @@
 # depslib dependency file v1.0
-1431520609 source:e:\github\breakout\main.cpp
+1431542290 source:e:\github\breakout\main.cpp
 	<iostream>
 	<sstream>
 	<string>
@@ -8,17 +8,16 @@
 	"game.h"
 	"view.h"
 
-1431509286 e:\github\breakout\graphics.h
+1431535145 e:\github\breakout\graphics.h
 	<GL/gl.h>
-	<GL/glu.h>
 	<GL/freeglut.h>
 	<functional>
 	<cmath>
 
-1431511426 source:e:\github\breakout\graphics.cpp
+1431538497 source:e:\github\breakout\graphics.cpp
 	"graphics.h"
 
-1431529221 source:e:\github\breakout\game.cpp
+1431542295 source:e:\github\breakout\game.cpp
 	"game.h"
 	"ball.h"
 	"brick.h"
@@ -33,8 +32,7 @@
 
 1431448496 e:\github\breakout\isteppable.h
 
-1431529287 e:\github\breakout\game.h
-	<iostream>
+1431532885 e:\github\breakout\game.h
 	<vector>
 	<memory>
 	<algorithm>
@@ -43,25 +41,25 @@
 	"ball.h"
 	"pad.h"
 
-1431351644 e:\github\breakout\icollidable.h
+1431540694 e:\github\breakout\icollidable.h
 	"vector.h"
 
-1431342552 e:\github\breakout\vector.h
+1431541251 e:\github\breakout\vector.h
 	<cmath>
 
-1431342576 source:e:\github\breakout\vector.cpp
+1431541245 source:e:\github\breakout\vector.cpp
 	"vector.h"
 
-1431357242 source:e:\github\breakout\wall.cpp
+1431542919 source:e:\github\breakout\wall.cpp
 	"wall.h"
 
-1431362821 e:\github\breakout\wall.h
+1431543160 e:\github\breakout\wall.h
 	"icollidable.h"
 
-1431518444 source:e:\github\breakout\view.cpp
+1431541298 source:e:\github\breakout\view.cpp
 	"view.h"
 
-1431464375 e:\github\breakout\view.h
+1431541567 e:\github\breakout\view.h
 	<vector>
 	<memory>
 	<algorithm>
@@ -70,7 +68,7 @@
 	"idrawable.h"
 	"game.h"
 
-1431351681 e:\github\breakout\idrawable.h
+1431540754 e:\github\breakout\idrawable.h
 	"graphics.h"
 
 1431363360 source:e:\github\breakout\ballview.cpp
@@ -81,7 +79,7 @@
 	"ball.h"
 	"idrawable.h"
 
-1431518009 e:\github\breakout\pad.h
+1431540555 e:\github\breakout\pad.h
 	"wall.h"
 
 1431518045 source:e:\github\breakout\pad.cpp
@@ -94,7 +92,7 @@
 1431363067 source:e:\github\breakout\padview.cpp
 	"padview.h"
 
-1431362871 e:\github\breakout\padview.h
+1431540862 e:\github\breakout\padview.h
 	"idrawable.h"
 	"pad.h"
 	"graphics.h"
@@ -102,12 +100,12 @@
 1431442590 source:e:\github\breakout\brickview.cpp
 	"brickview.h"
 
-1431442583 e:\github\breakout\brickview.h
+1431531730 e:\github\breakout\brickview.h
 	"graphics.h"
 	"idrawable.h"
 	"vector.h"
 
-1431531473 e:\github\breakout\brick.h
+1431540452 e:\github\breakout\brick.h
 	<vector>
 	"vector.h"
 	"wall.h"
@@ -115,6 +113,6 @@
 	"view.h"
 	"brickview.h"
 
-1431463726 source:e:\github\breakout\brick.cpp
+1431530694 source:e:\github\breakout\brick.cpp
 	"brick.h"
 
