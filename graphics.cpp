@@ -9,7 +9,7 @@ std::function<void(float)> Graphics::idleCallback = nullptr;
 std::function<void()> Graphics::leftClickCallback = nullptr;
 int Graphics::startTime = 0;
 
-void Graphics::onDisplay( ) {
+void Graphics::onDisplay() {
     glClearColor(0, 0, 0, 1.0f);
     glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
 
@@ -77,8 +77,7 @@ void Graphics::drawCircle(float x, float y, float r, Color color) {
     glEnd();
 }
 
-void Graphics::drawText(float x, float y, const char* text)
-{
+void Graphics::drawText(float x, float y, const char* text) {
     glColor3f(1.0, 1.0, 1.0);
 
     glPushMatrix();

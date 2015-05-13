@@ -19,22 +19,10 @@ int main(int argc, char **argv) {
     Graphics::setWorld(160, 90);
 
     auto paintCallback = [&view, &game, start, &cntr, &ss] {
-                                switch (game->getGameState()) {
-                                    case Game::GameState::notstarted :
-                                    case Game::GameState::running :
-                                        view.draw();
-                                        ss << (float) cntr++ / (GetTickCount() - start) * 1000;
-                                        Graphics::drawText(10, 80, ss.str().c_str());
-                                        ss.str("");
-                                        break;
-
-                                    case Game::GameState::lost :
-                                        Graphics::drawText(80, 40, "Game over");
-                                        break;
-
-                                    default:
-                                        break;
-                                }
+                                view.draw();
+                                ss << (float) cntr++ / (GetTickCount() - start) * 1000;
+                                Graphics::drawText(10, 80, ss.str().c_str());
+                                ss.str("");
                             };
 
     auto tickCallback = [&game, &view] (float elapsed) {
