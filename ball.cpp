@@ -3,25 +3,14 @@
 #include "view.h"
 #include "ballview.h"
 
+Vector Ball::getDefaultSpeedInRound(int roundNum) {
+    return Vector{50.0f + roundNum * 10.0f, 50.0f + roundNum * 10.0f};
+}
+
 Ball::Ball(Vector position, Vector speed, Game& game, View& view) : position{position}, speed{speed}, game(game), view(view) {
     myView = new BallView{*this};
     view.addDrawable(myView);
 }
-
-//Ball& Ball::operator= (Ball&& other) {
-//    if (this != &other) {
-//        view.removeDrawable(myView);
-//
-//        position = other.position;
-//        speed = other.speed;
-////        game = other.game;
-////        view = other.view;
-//
-//        myView = other.myView;
-//        other.myView = nullptr;
-//    }
-//    return *this;
-//}
 
 Ball::~Ball() {
     view.removeDrawable(myView);
@@ -78,8 +67,4 @@ void Ball::step(float elapsed) {
      * hogy zavartalanul haladjunk elõre.
      */
      position += speed * elapsed;
-}
-
-Vector Ball::getDefaultSpeedInRound(int roundNum) {
-    return Vector{50.0f + roundNum * 10.0f, 50.0f + roundNum * 10.0f};
 }
