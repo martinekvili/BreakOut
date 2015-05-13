@@ -8,82 +8,97 @@ class View;
 class BallView;
 
 /**
- * A labdát reprezentáló osztály.
+ * A labdÃ¡t reprezentÃ¡lÃ³ osztÃ¡ly.
  *
- * A játék folyamán ez az egyetlen "animált" objektum,
- * így csak ennek van step függvénye, ami az eltelt idõt veszi át.
+ * A jÃ¡tÃ©k folyamÃ¡n ez az egyetlen "animÃ¡lt" objektum,
+ * Ã­gy csak ennek van step fÃ¼ggvÃ©nye, ami az eltelt idÃµt veszi Ã¡t.
  */
 class Ball {
     /**
-     * A labda pozíciója.
+     * A labda pozÃ­ciÃ³ja.
      */
     Vector position;
 
     /**
-     * A labda sebessége.
+     * A labda sebessÃ©ge.
      */
     Vector speed;
 
     /**
-     * A labdát tartalmazó Game objektum.
+     * A labdÃ¡t tartalmazÃ³ Game objektum.
      */
     Game& game;
 
     /**
-     * Az aktuális megjelenítõ objektum.
+     * Az aktuÃ¡lis megjelenÃ­tÃµ objektum.
      */
     View& view;
 
     /**
-     * A labda megjelenítésére szolgáló objektum címe.
+     * A labda megjelenÃ­tÃ©sÃ©re szolgÃ¡lÃ³ objektum cÃ­me.
      *
-     * Azért csak egy pointert tárolunk róla, mivel ez amúgy a View-ban
-     * menedzselt objektumként van eltárolva, tehát a megsemmisítése ott fog történni,
-     * itt csak azért van rá szükség, hogy jelezni tudjuk a View-nak, hogy már
-     * elpusztíthatja, mivel a labda leesett.
+     * AzÃ©rt csak egy pointert tÃ¡rolunk rÃ³la, mivel ez amÃºgy a View-ban
+     * menedzselt objektumkÃ©nt van eltÃ¡rolva, tehÃ¡t a megsemmisÃ­tÃ©se ott fog tÃ¶rtÃ©nni,
+     * itt csak azÃ©rt van rÃ¡ szÃ¼ksÃ©g, hogy jelezni tudjuk a View-nak, hogy mÃ¡r
+     * elpusztÃ­thatja, mivel a labda leesett.
      */
     BallView *myView;
 
 public:
     /**
-     * Az alapértelmezett sebességet megadó statikus függvény.
+     * Az alapÃ©rtelmezett sebessÃ©get megadÃ³ statikus fÃ¼ggvÃ©ny.
+     *
+     * @param roundNum Az aktuÃ¡lis kÃ¶r sorszÃ¡ma.
+     * @return Az alapÃ©rtelmezett sebessÃ©g az aktuÃ¡lis kÃ¶rben.
      */
     static Vector getDefaultSpeedInRound(int roundNum);
 
     /**
      * A konstruktor.
      *
-     * Elkészíti és bejegyzi a saját megjelenítõ objektumát.
+     * ElkÃ©szÃ­ti Ã©s bejegyzi a sajÃ¡t megjelenÃ­tÃµ objektumÃ¡t.
+     *
+     * @param position A pozÃ­ciÃ³.
+     * @param speed A sebessÃ©g.
+     * @param game Az aktuÃ¡lis jÃ¡tÃ©k objektum.
+     * @param view Az aktuÃ¡lis megjelenÃ­tÅ‘ objektum.
      */
     Ball(Vector position, Vector speed, Game& game, View& view);
 
     /**
      * A destruktor.
      *
-     * Jelzi a View-nak, hogy elpusztíthatja a megjelenítõ objektumot.
+     * Jelzi a View-nak, hogy elpusztÃ­thatja a megjelenÃ­tÃµ objektumot.
      */
     ~Ball();
 
     /**
-     * A pozíció beállítására szolgáló függvény.
+     * A pozÃ­ciÃ³ beÃ¡llÃ­tÃ¡sÃ¡ra szolgÃ¡lÃ³ fÃ¼ggvÃ©ny.
      *
-     * Akkor használjuk, amikor a labda az ütõvel együtt mozog.
+     * Akkor hasznÃ¡ljuk, amikor a labda az Ã¼tÃµvel egyÃ¼tt mozog.
+     *
+     * @param x Az x koordinÃ¡ta.
+     * @param y Az y koordinÃ¡ta.
      */
     void setPosition(float x, float y) { position = Vector {x, 4}; }
 
     /**
-     * A pozíció lekérésére szolgáló függvény.
+     * A pozÃ­ciÃ³ lekÃ©rÃ©sÃ©re szolgÃ¡lÃ³ fÃ¼ggvÃ©ny.
      *
-     * A megjelenítõ objektum használja.
+     * A megjelenÃ­tÃµ objektum hasznÃ¡lja.
+     *
+     * @return Az aktuÃ¡lis pozÃ­ciÃ³.
      */
     Vector getPosition() { return position; }
 
     /**
-     * Az animálásra szolgáló függvény.
+     * Az animÃ¡lÃ¡sra szolgÃ¡lÃ³ fÃ¼ggvÃ©ny.
      *
-     * Megkapja az eltelt idõintervallumot, és ez alapján végigzongorázza,
-     * hogy kikkel, hogyan ütközött, és ezáltal hi lett az új pozíciója,
-     * és a megváltozott sebessége.
+     * Megkapja az eltelt idÃµintervallumot, Ã©s ez alapjÃ¡n vÃ©gigzongorÃ¡zza,
+     * hogy kikkel, hogyan Ã¼tkÃ¶zÃ¶tt, Ã©s ezÃ¡ltal hi lett az Ãºj pozÃ­ciÃ³ja,
+     * Ã©s a megvÃ¡ltozott sebessÃ©ge.
+     *
+     * @param elapsed Az eltelt idÅ‘ mÃ¡sodpercben mÃ©rve.
      */
     void step(float elapsed);
 };

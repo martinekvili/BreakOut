@@ -23,12 +23,12 @@
 	"ball.h"
 	"brick.h"
 
-1431528868 source:e:\github\breakout\ball.cpp
+1431529955 source:e:\github\breakout\ball.cpp
 	"ball.h"
 	"view.h"
 	"ballview.h"
 
-1431529966 e:\github\breakout\ball.h
+1431530333 e:\github\breakout\ball.h
 	"vector.h"
 
 1431448496 e:\github\breakout\isteppable.h
@@ -76,7 +76,7 @@
 1431363360 source:e:\github\breakout\ballview.cpp
 	"ballview.h"
 
-1431464623 e:\github\breakout\ballview.h
+1431530070 e:\github\breakout\ballview.h
 	"graphics.h"
 	"ball.h"
 	"idrawable.h"

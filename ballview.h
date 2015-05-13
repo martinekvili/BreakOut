@@ -5,10 +5,18 @@
 #include "ball.h"
 #include "idrawable.h"
 
+/**
+ * A labda megjelenítésére szolgáló osztály.
+ */
 class BallView final : public IDrawable {
+    /**
+     * A labda amit megjelenít.
+     */
     Ball& ball;
 
 public:
+    /**
+     */
     BallView(Ball& ball) : ball(ball) {}
 
     void draw() override final;
