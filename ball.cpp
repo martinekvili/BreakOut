@@ -8,6 +8,21 @@ Ball::Ball(Vector position, Vector speed, Game& game, View& view) : position{pos
     view.addDrawable(myView);
 }
 
+//Ball& Ball::operator= (Ball&& other) {
+//    if (this != &other) {
+//        view.removeDrawable(myView);
+//
+//        position = other.position;
+//        speed = other.speed;
+////        game = other.game;
+////        view = other.view;
+//
+//        myView = other.myView;
+//        other.myView = nullptr;
+//    }
+//    return *this;
+//}
+
 Ball::~Ball() {
     view.removeDrawable(myView);
 }

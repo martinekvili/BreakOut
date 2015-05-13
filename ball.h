@@ -2,12 +2,13 @@
 #define BALL_H_INCLUDED
 
 #include "isteppable.h"
-#include "game.h"
+#include "vector.h"
 
+class Game;
 class View;
 class BallView;
 
-class Ball final : public ISteppable {
+class Ball {
     Vector position;
     Vector speed;
 
@@ -18,12 +19,13 @@ class Ball final : public ISteppable {
 
 public:
     Ball(Vector position, Vector speed, Game& game, View& view);
+    //Ball& operator= (Ball&& other);
     ~Ball();
 
-    void setPosition(float x, float y) override final { position = Vector {x, 4}; }
+    void setPosition(float x, float y) { position = Vector {x, 4}; }
     Vector getPosition() { return position; }
 
-    void step(float elapsed) override final;
+    void step(float elapsed);
 
     static Vector getDefaultSpeedInRound(int roundNum);
 };

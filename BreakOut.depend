@@ -18,30 +18,30 @@
 1431511426 source:e:\github\breakout\graphics.cpp
 	"graphics.h"
 
-1431520585 source:e:\github\breakout\game.cpp
+1431529221 source:e:\github\breakout\game.cpp
 	"game.h"
 	"ball.h"
 	"brick.h"
 
-1431517756 source:e:\github\breakout\ball.cpp
+1431528868 source:e:\github\breakout\ball.cpp
 	"ball.h"
 	"view.h"
 	"ballview.h"
 
-1431517511 e:\github\breakout\ball.h
+1431529339 e:\github\breakout\ball.h
 	"isteppable.h"
-	"game.h"
+	"vector.h"
 
 1431448496 e:\github\breakout\isteppable.h
 
-1431518053 e:\github\breakout\game.h
+1431529287 e:\github\breakout\game.h
 	<iostream>
 	<vector>
 	<memory>
 	<algorithm>
-	"isteppable.h"
 	"icollidable.h"
 	"wall.h"
+	"ball.h"
 	"pad.h"
 
 1431351644 e:\github\breakout\icollidable.h

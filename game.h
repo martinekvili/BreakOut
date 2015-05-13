@@ -7,9 +7,9 @@
 #include <memory>
 #include <algorithm>
 
-#include "isteppable.h"
 #include "icollidable.h"
 #include "wall.h"
+#include "ball.h"
 #include "pad.h"
 
 class View;
@@ -26,7 +26,7 @@ public:
 private:
     View& view;
 
-    std::shared_ptr<ISteppable> ball;
+    std::shared_ptr<Ball> ball;
     Pad *pad;
     std::vector<std::shared_ptr<ICollidable>> objects;
 
@@ -45,7 +45,7 @@ public:
     //Game(const Game& other) = default;
     //Game& operator= (const Game& other) = default;
 
-    Game& operator= (Game && other);
+    //Game& operator= (Game && other);
 
     std::vector<std::shared_ptr<ICollidable>> getCollidables();
 

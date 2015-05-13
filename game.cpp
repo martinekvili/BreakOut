@@ -37,7 +37,7 @@ Game::Game(View& view, int points, int lives, int round) :
         view(view), gameState{GameState::notstarted}, brickCounter{0}, points{points}, lives{lives}, round{round} {
     view.setGame(this);
 
-    ball = std::shared_ptr<ISteppable>{new Ball(Vector{80, 4}, Ball::getDefaultSpeedInRound(round), *this, view)};
+    ball = std::shared_ptr<Ball>{new Ball(Vector{80, 4}, Ball::getDefaultSpeedInRound(round), *this, view)};
 
     pad = new Pad(*this, view);
 
