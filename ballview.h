@@ -16,9 +16,16 @@ class BallView final : public IDrawable {
 
 public:
     /**
+     * A konstruktor.
+     * @param ball A megjelenítendõ labda.
      */
     BallView(Ball& ball) : ball(ball) {}
 
+    /**
+     * A kirajzoló függvény.
+     *
+     * Egy zöld kört rajzol ki a labda helyére.
+     */
     void draw() override final;
 };
 
