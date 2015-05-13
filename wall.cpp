@@ -3,6 +3,12 @@
 float Wall::tryCollide(Vector start, Vector speed, float time) {
     float dist;
 
+    /*
+     * Megvizsgáljuk a labda útjának és a falnak a metszéspontját,
+     * és ha még a fal belsejében van, akkor visszatérünk a távolságával.
+     * Minden más esetben (nincs így metszéspont: távolodunk, vagy kívül esne
+     * a metszéspont a fal belsején), akkor -1-gyel térünk vissza.
+     */
     if (direction == horizontal) {
         dist = (position.y - start.y) / speed.y;
 
@@ -23,6 +29,11 @@ float Wall::tryCollide(Vector start, Vector speed, float time) {
 }
 
 void Wall::doCollide(Vector &start, Vector &speed, float &time, float dist) {
+    /*
+     * Teljes visszaverődést szimulálunk, azaz az ütköző irányú
+     * komponens pont -1-szeresére változik.
+     * A pozíció pedig pont a metszéspontba kerül.
+     */
     if (direction == horizontal) {
         start.y = position.y;
         speed.y *= -1;
@@ -31,7 +42,7 @@ void Wall::doCollide(Vector &start, Vector &speed, float &time, float dist) {
         speed.x *= -1;
     }
 
-    // Egy picit el�r�bb mozd�tjuk a sz�m�t�ssi pontoss�g miatt
+    // Egy picit elõrébb mozdítjuk a számítási pontatlanság miatt
     start += speed * 0.001;
 
     time -= dist + 0.001;
