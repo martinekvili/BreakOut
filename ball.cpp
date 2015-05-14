@@ -20,7 +20,11 @@ void Ball::step(float elapsed) {
     /*
      * Először is csekkoljuk, hogy leesett-e a labda, mert ha igen,
      * akkor az egész elkövetkező ütközésdetektálást fölöslegesen végezzük,
-     * mert már vége a játéknak.
+     * mert már vége a labdának.
+     *
+     * De vigyázat, a decrementLives() hívás gyakorlatilag egy
+     * delete this, így ezen a ponton muszáj visszatérnünk azonnal
+     * a függvényből, különben csúnya memóriakorrupciós hibákat vétünk.
      */
     if (position.y < 0) {
         game.decrementLives();

@@ -18,7 +18,6 @@ int main(int argc, char **argv) {
 
     auto tickCallback = [&game, &view] (float elapsed) {
                             if (game->getGameState() == Game::GameState::won) {
-                                game.reset();
                                 game.reset(new Game{view, game->getPoints(), game->getLives(), game->getRound() + 1});
                             } else {
                                 game->step(elapsed);
