@@ -24,6 +24,7 @@ void Ball::step(float elapsed) {
      */
     if (position.y < 0) {
         game.decrementLives();
+        return;
     }
 
     /*

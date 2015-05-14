@@ -72,7 +72,7 @@ void Game::decrementLives() {
         gameState = GameState::lost;
     } else {
         // Ha még nincs vége a játéknak, akkor új labdát kapunk
-        ball.reset(static_cast<Ball*>(nullptr)); // Először töröljük az előző objektumot.
+        ball.reset(); // Először töröljük az előző objektumot.
         ball.reset(new Ball{Vector{pad->getPosition().x + 10.0f, pad->getPosition().y + 1.5f},
                                                     Ball::getDefaultSpeedInRound(round), *this, view});
 

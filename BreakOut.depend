@@ -1,9 +1,8 @@
 # depslib dependency file v1.0
-1431542290 source:e:\github\breakout\main.cpp
+1431616190 source:e:\github\breakout\main.cpp
 	<iostream>
 	<sstream>
 	<string>
-	<windows.h>
 	"graphics.h"
 	"game.h"
 	"view.h"
