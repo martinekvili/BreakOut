@@ -1,6 +1,7 @@
 #ifndef BRICK_H_INCLUDED
 #define BRICK_H_INCLUDED
 
+#include <memory>
 #include <vector>
 
 #include "vector.h"
@@ -46,14 +47,11 @@ class Brick : public ICollidable {
     /**
      * A tégla saját megjelenítõ objektuma.
      *
-     * Azért csak pointert tárolunk, mivel a View-ban ugyan ezt az
-     * objektumot menedzselt körülmények köüzött tároljuk, így a
-     * megszüntetésére ott kerül majd sor.
-     * Itt azért van rá mégis szükség, hogy tudjunk jelezni, hogy
+     * Itt azért van rá szükség, hogy tudjunk jelezni, hogy
      * mikor kell megszüntetni (ezzel az objektummal együtt) a
      * megjelenítõt is.
      */
-    BrickView *myView;
+    std::shared_ptr<BrickView> myView;
 
     /**
      * Annak a falnak a sorszáma, aminek esélye van részt venni a következõ ütközésben.

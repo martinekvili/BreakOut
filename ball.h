@@ -1,6 +1,8 @@
 #ifndef BALL_H_INCLUDED
 #define BALL_H_INCLUDED
 
+#include <memory>
+
 #include "vector.h"
 
 class Game;
@@ -37,12 +39,10 @@ class Ball {
     /**
      * A labda megjelenítésére szolgáló objektum címe.
      *
-     * Azért csak egy pointert tárolunk róla, mivel ez amúgy a View-ban
-     * menedzselt objektumként van eltárolva, tehát a megsemmisítése ott fog történni,
-     * itt csak azért van rá szükség, hogy jelezni tudjuk a View-nak, hogy már
+     * Itt csak azért van rá szükség, hogy jelezni tudjuk a View-nak, hogy már
      * elpusztíthatja, mivel a labda leesett.
      */
-    BallView *myView;
+    std::shared_ptr<BallView> myView;
 
 public:
     /**

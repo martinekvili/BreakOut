@@ -37,13 +37,13 @@ public:
      *
      * @param elem A hozzáadandó objektum.
      */
-    void addDrawable(IDrawable *elem);
+    void addDrawable(std::shared_ptr<IDrawable> elem);
 
     /**
      * Kirajzolható objektumot törlõ függvény.
      * @param elem A törlendõ objektum.
      */
-    void removeDrawable(IDrawable *elem);
+    void removeDrawable(std::shared_ptr<IDrawable> elem);
 
     /**
      * A kirajzoló függvény.

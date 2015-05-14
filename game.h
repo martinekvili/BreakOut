@@ -41,12 +41,10 @@ private:
     /**
      * Az ütõ.
      *
-     * Azért csak pointert tárolunk itt róla, mivel az ütõ amúgy benne van
-     * az objects tömbben, ahol menedzselt körülmények között tároljuk.
-     * Viszont szükség van, hogy külön is ismerjük, hogy elérjük a plusz
+     * Azért van szükség, hogy külön is ismerjük, hogy elérjük a plusz
      * funkcionalitását.
      */
-    Pad *pad;
+    std::shared_ptr<Pad> pad;
 
     /**
      * Az ütközhetõ objektumok.
@@ -80,13 +78,10 @@ private:
 
     /**
      * Új ütközhetõ objektumot hozzáadó függvény.
-     *
-     * Becsomagolja egy okos pointerbe, és hozzáadja a vector-hoz.
-     *
      * @param elem Az objektum pointere.
      * @param isCounted Növejlük-e a brickCounter-t.
      */
-    void addObject(ICollidable *elem, bool isCounted = false);
+    void addObject(std::shared_ptr<ICollidable> elem, bool isCounted = false);
 
     /**
      * A pályát felépítõ függvény.

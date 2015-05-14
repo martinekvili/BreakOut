@@ -6,7 +6,6 @@
 #include "padview.h"
 
 Pad::Pad(Game &game, View& view) : surface{Vector{70, 2.5}, 20, Wall::Direction::horizontal}, game(game) {
-    view.addDrawable(new PadView{*this});
 }
 
 float Pad::tryCollide(Vector start, Vector speed, float time) {

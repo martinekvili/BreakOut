@@ -8,7 +8,7 @@
 
 int main(int argc, char **argv) {
     View view{};
-    std::shared_ptr<Game> game{new Game{view}};
+    std::shared_ptr<Game> game = std::make_shared<Game>(view);
 
     Graphics::setWorld(160, 90);
 

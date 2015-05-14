@@ -7,7 +7,7 @@ Brick::Brick(float x, float y, float width, float height, Game& game, View& view
     walls.push_back(Wall{Vector{x, y}, height, Wall::Direction::vertical});
     walls.push_back(Wall{Vector{x + width, y}, height, Wall::Direction::vertical});
 
-    myView = new BrickView{position, width, height};
+    myView = std::make_shared<BrickView>(position, width, height);
     view.addDrawable(myView);
 }
 

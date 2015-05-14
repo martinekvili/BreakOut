@@ -1,6 +1,8 @@
 #ifndef PAD_H_INCLUDED
 #define PAD_H_INCLUDED
 
+#include <memory>
+
 #include "wall.h"
 
 class View;
