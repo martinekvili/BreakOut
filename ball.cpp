@@ -8,6 +8,7 @@ Vector Ball::getDefaultSpeedInRound(int roundNum) {
 }
 
 Ball::Ball(Vector position, Vector speed, Game& game, View& view) : position{position}, speed{speed}, game(game), view(view) {
+    myView = std::make_shared<BallView>(*this);
     view.addDrawable(myView);
 }
 
